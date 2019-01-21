@@ -10,7 +10,7 @@
         </footer>
         <!-- End Footer -->
 
-        <?php $this->load->view('template/script')?>
+        
 
     </body>
 </html>
