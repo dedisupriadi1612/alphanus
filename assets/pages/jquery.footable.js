@@ -30,7 +30,7 @@ $(window).on('load', function() {
 
     // Filtering
     // -----------------------------------------------------------------
-    var filtering = $('#demo-foo-filtering');
+    var filtering = $('#demo-foo-pagination');
     filtering.footable().on('footable_filtering', function (e) {
         var selected = $('#demo-foo-filter-status').find(':selected').val();
         e.filter += (e.filter && e.filter.length > 0) ? ' ' + selected : selected;

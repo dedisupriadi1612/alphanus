@@ -10,3 +10,12 @@
 <!-- App js -->
 <script src="<?php echo base_url().'assets/';?>js2/jquery.core.js"></script>
 <script src="<?php echo base_url().'assets/';?>js2/jquery.app.js"></script>
+
+<!--FooTable-->
+<script src="<?php echo base_url().'assets/';?>plugins/footable/js/footable.all.min.js"></script>
+<!-- FooTable Example
+<script src="<?php //echo base_url().'assets/';?>pages/jquery.footable.js"></script> -->
+
+
+<script src="<?php echo base_url().'assets/';?>js/npm.js"></script>
+<script src="<?php echo base_url().'assets/';?>js/javascript.js"></script>

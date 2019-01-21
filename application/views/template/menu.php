@@ -101,7 +101,7 @@
                         <ul class="navigation-menu">
 
                             <li class="has-submenu">
-                                <a href="<?php echo base_url().'home' ?>"><i class="mdi mdi-home"></i>Home</a>
+                                <a href="<?php echo base_url().'home' ?>"><i class="dripicons-home"></i>Home</a>
                             </li>
 
                             <li class="has-submenu">

@@ -44,8 +44,8 @@
 
                                 <div class="form-group m-b-20 row">
                                     <div class="col-12">
-                                        <label for="username">User Name Or Email address</label>
-                                        <input class="form-control" type="text" id="username" name="username" required="" placeholder="Enter your username or email">
+                                        <label for="username">Username or Email </label>
+                                        <input class="form-control" type="text" id="username" name="username" required="" placeholder="Enter your username or your email">
                                     </div>
                                 </div>
 

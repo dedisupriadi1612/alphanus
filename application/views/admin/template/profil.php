@@ -22,7 +22,7 @@
                 </a>
 
                 <!-- item-->
-                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                <a href="<?php echo base_url('auth/logout') ?>" class="dropdown-item notify-item">
                     <i class="fi-power"></i> <span>Logout</span>
                 </a>
 
@@ -39,10 +39,10 @@
         </li>
         <li>
             <div class="page-title-box">
-                <h4 class="page-title">Dashboard </h4>
+                <h4 class="page-title"><?php echo ucfirst($this->uri->segment(1)) ?> </h4>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Alphanus</a></li>
-                    <li class="breadcrumb-item active">Dashboard</li>
+                    <li class="breadcrumb-item"><a href="<?php echo base_url() ?>">Alphanus</a></li>
+                    <li class="breadcrumb-item active"><?php echo ucfirst($this->uri->segment(1)) ?></li>
                 </ol>
             </div>
         </li>

@@ -12,6 +12,24 @@
         
         <?php $this->load->view('admin/template/style')?>
 
+        <style>
+    .treegrid-indent {
+        width: 0px;
+        height: 16px;
+        display: inline-block;
+        position: relative;
+    }
+
+    .treegrid-expander {
+        width: 0px;
+        height: 16px;
+        display: inline-block;
+        position: relative;
+        left:-17px;
+        cursor: pointer;
+    }
+</style>
+
         
 
     </head>
