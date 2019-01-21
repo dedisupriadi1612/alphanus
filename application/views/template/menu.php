@@ -43,11 +43,15 @@
                                     <span class="ml-1 pro-user-name">User <i class="mdi mdi-chevron-down"></i> </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
+                                    
+
+                                    <?php 
+                                        if (!isLogin()):
+                                    ?>
                                     <!-- item-->
                                     <div class="dropdown-item noti-title">
                                         <h6 class="text-overflow m-0">Join With Us</h6>
                                     </div>
-
                                     <!-- item-->
                                     <a href="<?php echo base_url().'auth' ?>" class="dropdown-item notify-item">
                                         <i class="mdi mdi-login-variant"></i> <span>Login</span>
@@ -57,6 +61,25 @@
                                     <a href="<?php echo base_url().'register' ?>" class="dropdown-item notify-item">
                                         <i class="dripicons-user"></i> <span>Register</span>
                                     </a>
+                                    <?php
+                                        else :
+                                    ?>
+                                    <div class="dropdown-item noti-title">
+                                        <h6 class="text-overflow m-0">Welcome !</h6>
+                                    </div>
+
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="fi-head"></i> <span>My Account</span>
+                                    </a>
+
+                                    <!-- item-->
+                                    <a href="<?php echo base_url('auth/logout') ?>" class="dropdown-item notify-item">
+                                        <i class="fi-power"></i> <span>Logout</span>
+                                    </a>
+                                    <?php
+                                        endif;
+                                    ?>
 
                                 </div>
                             </li>
@@ -92,9 +115,17 @@
                                 </ul>
                             </li>
 
-                            <li class="has-submenu">
-                                <a href="<?php echo base_url().'dashboard' ?>"><i class="icon-speedometer"></i>Dashboard</a>
-                            </li>
+                            <?php 
+                                if (isLogin()) 
+                                {
+                            ?>
+                                <li class="has-submenu">
+                                    <a href="<?php echo base_url().'dashboard' ?>"><i class="icon-speedometer"></i>Dashboard</a>
+                                </li>
+                            <?php
+                                }
+                            ?>
+                            
                             
 
                         </ul>
