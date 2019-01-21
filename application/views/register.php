@@ -27,7 +27,7 @@
 
                         <div class="card-box p-5">
                             <h2 class="text-uppercase text-center pb-4">
-                                <a href="index.html" class="text-success">
+                                <a href="<?php echo base_url() ?>" class="text-success">
                                     <span><img src="<?php echo base_url().'assets/';?>images/logo.png" alt="" height="80"></span>
                                 </a>
                             </h2>

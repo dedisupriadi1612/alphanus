@@ -11,7 +11,7 @@
                             <span class="logo-large"><i class="mdi mdi-radar"></i> Highdmin</span>
                         </a> -->
                         <!-- Image Logo -->
-                        <a href="index.html" class="logo">
+                        <a href="<?php echo base_url() ?>" class="logo">
                             <img src="<?php echo base_url().'assets/';?>images/logo.png" alt="" height="40" class="logo-small">
                             <img src="<?php echo base_url().'assets/';?>images/logo.png" alt="" height="55" class="logo-large">
                         </a>
@@ -49,7 +49,7 @@
                                     </div>
 
                                     <!-- item-->
-                                    <a href="<?php echo base_url().'login' ?>" class="dropdown-item notify-item">
+                                    <a href="<?php echo base_url().'auth' ?>" class="dropdown-item notify-item">
                                         <i class="mdi mdi-login-variant"></i> <span>Login</span>
                                     </a>
 

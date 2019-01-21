@@ -27,17 +27,25 @@
 
                         <div class="card-box p-5">
                             <h2 class="text-uppercase text-center pb-4">
-                                <a href="index.html" class="text-success">
+                                <a href="<?php echo base_url() ?>" class="text-success">
                                     <span><img src="<?php echo base_url().'assets/';?>images/logo.png" alt="" height="80"></span>
                                 </a>
                             </h2>
 
-                            <form class="" action="#">
+                            <?php if ($this->session->flashdata('error_message') != "") :?>
+                                <div class="alert alert-danger alert-dismissable" role="alert">
+                                    <button aria-label="Close" data-dismiss="alert" class="close" type="button"><span aria-hidden="true">X</span></button>
+                                    <strong><?php echo $this->session->flashdata('error_message')?></strong>
+                                </div>
+                            <?php endif?>
+
+                            <form class="" action="<?php echo base_url('auth/login');?>" method="post">
+                                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
 
                                 <div class="form-group m-b-20 row">
                                     <div class="col-12">
-                                        <label for="emailaddress">Email address</label>
-                                        <input class="form-control" type="email" id="emailaddress" required="" placeholder="Enter your email">
+                                        <label for="username">User Name Or Email address</label>
+                                        <input class="form-control" type="text" id="username" name="username" required="" placeholder="Enter your username or email">
                                     </div>
                                 </div>
 
@@ -45,7 +53,7 @@
                                     <div class="col-12">
                                         <a href="<?php echo base_url().'forgetPassword' ?>" class="text-muted float-right"><small>Forgot your password?</small></a>
                                         <label for="password">Password</label>
-                                        <input class="form-control" type="password" required="" id="password" placeholder="Enter your password">
+                                        <input class="form-control" type="password" required="" id="password" name = "password" placeholder="Enter your password">
                                     </div>
                                 </div>
 
