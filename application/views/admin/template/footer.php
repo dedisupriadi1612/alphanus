@@ -1,5 +1,5 @@
-<footer class="footer">
-        2019 © Alphanus
+    <footer class="footer">
+        2019 © NeeDuck
     </footer>
 
 

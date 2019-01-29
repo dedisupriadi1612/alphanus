@@ -183,7 +183,11 @@ class Interactive extends CI_Controller {
 				break;
 		}
 
-		$data =  array('status' => $status,'output'=>"<pre>".$output."</pre>");
+		$data =  array('status' => $status,
+						'output'=>"<pre>".$output."</pre>",
+						'csrfName' => $this->security->get_csrf_token_name(),
+                		'csrfHash' => $this->security->get_csrf_hash()
+						);
 
 		// set text compatible IE7, IE8
 		header('Content-type: text/plain'); 

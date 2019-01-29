@@ -2,7 +2,7 @@ $(function () {
     var
         $table = $('#tree-table'),
         rows = $table.find('tr');
-
+        //alert($table);
     rows.each(function (index, row) {
         var
             $row = $(row),
@@ -20,20 +20,25 @@ $(function () {
             children.hide();
 
             
+            
             expander.on('click', function (e) {
+                
                 var $target = $(e.target);
                 //console.log ($target);
                 if ($('#span-'+id).hasClass('mdi mdi-arrow-right-bold-circle')) {
+                    //alert("tes");
+                    //console.log ($target);
                     // $target
                     //     .removeClass('mdi mdi-arrow-right-bold-circle')
                     //     .addClass('mdi mdi-arrow-down-bold-circle');
                     $('#span-'+id).removeClass('mdi mdi-arrow-right-bold-circle');
                     $('#span-'+id).addClass('mdi mdi-arrow-down-bold-circle');
+                    //$('#parent_id').val(id);
                     children.show();
                 } else {
                     $('#span-'+id).removeClass('mdi mdi-arrow-down-bold-circle');
                     $('#span-'+id).addClass('mdi mdi-arrow-right-bold-circle');
-
+                    //$('#parent_id').val(id);
                     reverseHide($table, $row);
                 }
             });
@@ -43,6 +48,8 @@ $(function () {
             '<span class="treegrid-indent" style="width:' + 15 * level + 'px"></span>' +
             '');
     });
+
+    
 
     // Reverse hide all elements
     reverseHide = function (table, element) {
@@ -61,6 +68,7 @@ $(function () {
                 $('#span-'+id).addClass('mdi mdi-arrow-right-bold-circle');
             }
 
+            
             $('#span-'+id)
                 .find('.mdi mdi-arrow-down-bold-circle')
                 .removeClass('mdi mdi-arrow-down-bold-circle')

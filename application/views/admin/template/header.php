@@ -28,7 +28,14 @@
         left:-17px;
         cursor: pointer;
     }
+
+    .footable a {
+
+color: black;
+
+}
 </style>
+
 
         
 

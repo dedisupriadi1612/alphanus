@@ -1,3 +1,0 @@
-PHP Parse error:  syntax error, unexpected '$uyu' (T_VARIABLE), expecting ',' or ';' in C:\xampp\htdocs\alphanus\fInteractive\main.php on line 3
-
-Parse error: syntax error, unexpected '$uyu' (T_VARIABLE), expecting ',' or ';' in C:\xampp\htdocs\alphanus\fInteractive\main.php on line 3

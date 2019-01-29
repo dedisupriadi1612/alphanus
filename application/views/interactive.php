@@ -51,6 +51,7 @@
         </div>
         <!-- end wrapper -->
         <script>
+            document.addEventListener('contextmenu', event => event.preventDefault());
             var lang = "<?php echo $lang;?>";
             var codelang = "<?php echo $code;?>";
             var dft = '<?php echo $default;?>';
@@ -67,6 +68,8 @@
             });
 
             editor.setValue(dft);
+
+            var   csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
             
             $( "#btnexecute" ).click(function() {
                 if(codelang == "html"){
@@ -74,13 +77,14 @@
                 }else{
                     var codeEditor = editor.getValue();
                     
+                    
                     $.ajax({
                         method: "POST",
                         url: "<?php echo base_url().'interactive/compile' ?>",
-                        data: { code: codelang, editor:codeEditor }
+                        data: { code: codelang, editor:codeEditor,'<?php echo $this->security->get_csrf_token_name(); ?>':csrfHash }
                     })
                     .done(function( response ) {
-
+                        csrfHash = response.csrfHash;
                         var $iframe = $('#preview');
                         $iframe.ready(function() {
                             $iframe.contents().find("body").html(response.output);

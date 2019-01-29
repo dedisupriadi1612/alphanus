@@ -1,4 +1,3 @@
 <?php 
-	echo "hello world"
-      $uyu
+	echo "hello world"; 
 ?>
