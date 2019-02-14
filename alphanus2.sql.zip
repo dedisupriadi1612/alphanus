@@ -1,0 +1,486 @@
+/*==============================================================*/
+/* DBMS name:      MySQL 5.0                                    */
+/* Created on:     14-Feb-19 1:24:26 PM                         */
+/*==============================================================*/
+
+
+drop table if exists appreciation;
+
+drop table if exists article;
+
+drop table if exists chat;
+
+drop table if exists comment_article;
+
+drop table if exists comment_forum;
+
+drop table if exists forum;
+
+drop table if exists g_param;
+
+drop table if exists map_appreciation;
+
+drop table if exists map_matpel_teacher;
+
+drop table if exists materi;
+
+drop table if exists matpel;
+
+drop table if exists menu;
+
+drop table if exists privilage;
+
+drop table if exists privilage_user;
+
+drop table if exists privilege_type;
+
+drop table if exists req_admin;
+
+drop table if exists sesi_matpel;
+
+drop table if exists siswa;
+
+drop table if exists teacher;
+
+drop table if exists ujian;
+
+drop table if exists user;
+
+/*==============================================================*/
+/* Table: appreciation                                          */
+/*==============================================================*/
+create table appreciation
+(
+   appreciation_id      int not null auto_increment,
+   appreciation_name    varchar(50),
+   appreciation_icon    varchar(100),
+   appreciation_description varchar(255),
+   creation_date        datetime,
+   creation_by          varchar(30),
+   updated_date         datetime,
+   updated_by           varchar(30),
+   primary key (appreciation_id)
+);
+
+/*==============================================================*/
+/* Table: article                                               */
+/*==============================================================*/
+create table article
+(
+   article_id           int not null auto_increment,
+   user_id              int,
+   article_tittle       varchar(250),
+   article_text         text,
+   article_picture      varchar(255),
+   article_video        varchar(255),
+   article_live         numeric(8,0),
+   is_approve           varchar(1),
+   creation_date        datetime not null,
+   creation_by          varchar(30) not null,
+   updated_date         datetime not null,
+   updated_by           varchar(30) not null,
+   primary key (article_id)
+);
+
+/*==============================================================*/
+/* Table: chat                                                  */
+/*==============================================================*/
+create table chat
+(
+   chat_id              int not null auto_increment,
+   from_user_id         int,
+   to_user_id           numeric(8,0),
+   chat_message         varchar(255),
+   chat_status          varchar(50),
+   creation_date        datetime,
+   creation_by          varchar(30),
+   updated_date         datetime,
+   updated_by           varchar(30),
+   primary key (chat_id)
+);
+
+/*==============================================================*/
+/* Table: comment_article                                       */
+/*==============================================================*/
+create table comment_article
+(
+   comment_article_id   int not null auto_increment,
+   user_id              int,
+   article_id           int,
+   coment_text          text,
+   coment_level         numeric(8,0),
+   coment_parent        numeric(8,0),
+   creation_date        datetime not null,
+   creation_by          varchar(30) not null,
+   updated_date         datetime not null,
+   updated_by           varchar(30) not null,
+   primary key (comment_article_id)
+);
+
+/*==============================================================*/
+/* Table: comment_forum                                         */
+/*==============================================================*/
+create table comment_forum
+(
+   comment_article_id2  int not null auto_increment,
+   article_id2          int,
+   user_id              int,
+   coment_text          text,
+   coment_level         numeric(8,0),
+   coment_parent        numeric(8,0),
+   creation_date        datetime not null,
+   creation_by          varchar(30) not null,
+   updated_date         datetime not null,
+   updated_by           varchar(30) not null,
+   primary key (comment_article_id2)
+);
+
+/*==============================================================*/
+/* Table: forum                                                 */
+/*==============================================================*/
+create table forum
+(
+   article_id2          int not null auto_increment,
+   user_id              int,
+   forum_tittle         varchar(255),
+   forum_text           text,
+   creation_date        datetime not null,
+   creation_by          varchar(30) not null,
+   updated_date         datetime not null,
+   updated_by           varchar(30) not null,
+   primary key (article_id2)
+);
+
+/*==============================================================*/
+/* Table: g_param                                               */
+/*==============================================================*/
+create table g_param
+(
+   g_param_id           int not null auto_increment,
+   name_key             varchar(50),
+   int_value            numeric(8,0),
+   str_value            varchar(100),
+   dercription          varchar(255),
+   creation_date        datetime,
+   creation_by          varchar(30),
+   updated_date         datetime,
+   updated_by           varchar(30),
+   primary key (g_param_id)
+);
+
+/*==============================================================*/
+/* Table: map_appreciation                                      */
+/*==============================================================*/
+create table map_appreciation
+(
+   map_appreciation_id  int not null auto_increment,
+   appreciation_id      int,
+   user_id              int,
+   map_appreciation_desc varchar(255),
+   creation_date        datetime,
+   creation_by          varchar(30),
+   updated_date         datetime,
+   updated_by           varchar(30),
+   primary key (map_appreciation_id)
+);
+
+/*==============================================================*/
+/* Table: map_matpel_teacher                                    */
+/*==============================================================*/
+create table map_matpel_teacher
+(
+   map_matpel_id        int not null auto_increment,
+   matpel_id            int,
+   teacher_id           int,
+   map_matpel_tittle    varchar(100),
+   map_matpel_description varchar(255),
+   is_active            varchar(1),
+   is_approve           varchar(1),
+   creation_date        datetime,
+   creation_by          varchar(30),
+   updated_date         datetime,
+   updated_by           varchar(30),
+   primary key (map_matpel_id)
+);
+
+/*==============================================================*/
+/* Table: materi                                                */
+/*==============================================================*/
+create table materi
+(
+   materi_id            int not null auto_increment,
+   sesi_id              int,
+   materi_title         varchar(255),
+   materi_text          text,
+   materi_video         varchar(255),
+   is_active            varchar(1),
+   is_approve           varchar(1),
+   creation_date        datetime,
+   creation_by          varchar(30),
+   updated_date         datetime,
+   updated_by           varchar(30),
+   primary key (materi_id)
+);
+
+/*==============================================================*/
+/* Table: matpel                                                */
+/*==============================================================*/
+create table matpel
+(
+   matpel_id            int not null auto_increment,
+   matpel_name          varchar(50),
+   matpel_description   varchar(250),
+   is_active            varchar(1),
+   creation_date        datetime,
+   creation_by          varchar(30),
+   updated_date         datetime,
+   updated_by           varchar(30),
+   primary key (matpel_id)
+);
+
+/*==============================================================*/
+/* Table: menu                                                  */
+/*==============================================================*/
+create table menu
+(
+   menu_id              int not null auto_increment,
+   menu_title           varchar(30) not null,
+   menu_url             varchar(100),
+   menu_icon            varchar(100) not null,
+   menu_description     varchar(255),
+   menu_parent          numeric(8,0),
+   menu_order           numeric(8,0) not null,
+   creation_date        datetime not null,
+   creation_by          varchar(30) not null,
+   updated_date         datetime not null,
+   updated_by           varchar(30) not null,
+   primary key (menu_id)
+);
+
+/*==============================================================*/
+/* Table: privilage                                             */
+/*==============================================================*/
+create table privilage
+(
+   privilage_id         int not null auto_increment,
+   privilege_type_id    int,
+   menu_id              int,
+   module_id            numeric(8,0) not null,
+   creation_date        datetime not null,
+   creation_by          varchar(30) not null,
+   updated_date         datetime not null,
+   updated_by           varchar(30) not null,
+   primary key (privilage_id)
+);
+
+/*==============================================================*/
+/* Table: privilage_user                                        */
+/*==============================================================*/
+create table privilage_user
+(
+   privilege_user_id    int not null auto_increment,
+   user_id              int,
+   privilege_type_id    int,
+   creation_date        datetime,
+   creation_by          varchar(30),
+   updated_date         datetime,
+   updated_by           varchar(30),
+   primary key (privilege_user_id)
+);
+
+/*==============================================================*/
+/* Table: privilege_type                                        */
+/*==============================================================*/
+create table privilege_type
+(
+   privilege_type_id    int not null auto_increment,
+   privilege_type_name  varchar(30) not null,
+   privilege_type_description varchar(255),
+   creation_date        datetime not null,
+   creation_by          varchar(30) not null,
+   updated_date         datetime not null,
+   updated_by           varchar(30) not null,
+   primary key (privilege_type_id)
+);
+
+/*==============================================================*/
+/* Table: req_admin                                             */
+/*==============================================================*/
+create table req_admin
+(
+   req_admin_id         int not null auto_increment,
+   user_id              int,
+   jenis_request        varchar(32),
+   request_text         varchar(255),
+   request_description  text,
+   creation_date        datetime not null,
+   creation_by          varchar(30) not null,
+   updated_date         datetime not null,
+   updated_by           varchar(30) not null,
+   primary key (req_admin_id)
+);
+
+/*==============================================================*/
+/* Table: sesi_matpel                                           */
+/*==============================================================*/
+create table sesi_matpel
+(
+   sesi_id              int not null auto_increment,
+   map_matpel_id        int,
+   sesi_name            varchar(30),
+   sesi_description     varchar(255),
+   is_active            varchar(1),
+   is_approve           varchar(1),
+   creation_date        datetime,
+   creation_by          varchar(30),
+   updated_date         datetime,
+   updated_by           varchar(30),
+   primary key (sesi_id)
+);
+
+/*==============================================================*/
+/* Table: siswa                                                 */
+/*==============================================================*/
+create table siswa
+(
+   siswa_id             int not null auto_increment,
+   map_matpel_id        int,
+   user_id              int,
+   siswa_last_sesi      numeric(8,0),
+   siswa_last_materi    numeric(8,0),
+   siswa_last_ujian     numeric(8,0),
+   siswa_progress       numeric(10,0),
+   siswa_las_study      datetime,
+   creation_date        datetime,
+   creation_by          varchar(30),
+   updated_date         datetime,
+   updated_by           varchar(30),
+   primary key (siswa_id)
+);
+
+/*==============================================================*/
+/* Table: teacher                                               */
+/*==============================================================*/
+create table teacher
+(
+   teacher_id           int not null auto_increment,
+   user_id              int,
+   teacher_diploma      varchar(200),
+   teacher_skill        varchar(250),
+   teacher_experience   varchar(250),
+   is_approve           varchar(1),
+   creation_date        datetime,
+   creation_by          varchar(30),
+   updated_date         datetime,
+   updated_by           varchar(30),
+   primary key (teacher_id)
+);
+
+/*==============================================================*/
+/* Table: ujian                                                 */
+/*==============================================================*/
+create table ujian
+(
+   ujian_id             int not null auto_increment,
+   materi_id            int,
+   ujian_text           text,
+   ujian_video          varchar(100),
+   ujian_jawaban        text,
+   ujian_description    varchar(255),
+   is_active            varchar(1),
+   is_approve           varchar(1),
+   creation_date        datetime,
+   creation_by          varchar(30),
+   updated_date         datetime,
+   updated_by           varchar(30),
+   primary key (ujian_id)
+);
+
+/*==============================================================*/
+/* Table: user                                                  */
+/*==============================================================*/
+create table user
+(
+   user_id              int not null auto_increment,
+   user_name            varchar(30) not null,
+   user_password        varchar(150) not null,
+   user_actived         varchar(1),
+   user_fullname        varchar(100),
+   user_gender          varchar(1),
+   user_email           varchar(50),
+   user_telp            varchar(30),
+   user_picture         varchar(225),
+   user_description     varchar(225),
+   creation_date        datetime not null,
+   creation_by          varchar(30) not null,
+   updated_date         datetime not null,
+   updated_by           varchar(30) not null,
+   primary key (user_id)
+);
+
+alter table article add constraint fk_relationship_8 foreign key (user_id)
+      references user (user_id) on delete restrict on update restrict;
+
+alter table chat add constraint fk_relationship_23 foreign key (from_user_id)
+      references user (user_id) on delete restrict on update restrict;
+
+alter table comment_article add constraint fk_relationship_10 foreign key (user_id)
+      references user (user_id) on delete restrict on update restrict;
+
+alter table comment_article add constraint fk_relationship_5 foreign key (article_id)
+      references article (article_id) on delete restrict on update restrict;
+
+alter table comment_forum add constraint fk_relationship_11 foreign key (user_id)
+      references user (user_id) on delete restrict on update restrict;
+
+alter table comment_forum add constraint fk_relationship_6 foreign key (article_id2)
+      references forum (article_id2) on delete restrict on update restrict;
+
+alter table forum add constraint fk_relationship_9 foreign key (user_id)
+      references user (user_id) on delete restrict on update restrict;
+
+alter table map_appreciation add constraint fk_relationship_19 foreign key (appreciation_id)
+      references appreciation (appreciation_id) on delete restrict on update restrict;
+
+alter table map_appreciation add constraint fk_relationship_20 foreign key (user_id)
+      references user (user_id) on delete restrict on update restrict;
+
+alter table map_matpel_teacher add constraint fk_relationship_12 foreign key (matpel_id)
+      references matpel (matpel_id) on delete restrict on update restrict;
+
+alter table map_matpel_teacher add constraint fk_relationship_13 foreign key (teacher_id)
+      references teacher (teacher_id) on delete restrict on update restrict;
+
+alter table materi add constraint fk_relationship_15 foreign key (sesi_id)
+      references sesi_matpel (sesi_id) on delete restrict on update restrict;
+
+alter table privilage add constraint fk_relationship_1 foreign key (menu_id)
+      references menu (menu_id) on delete restrict on update restrict;
+
+alter table privilage add constraint fk_relationship_2 foreign key (privilege_type_id)
+      references privilege_type (privilege_type_id) on delete restrict on update restrict;
+
+alter table privilage_user add constraint fk_relationship_3 foreign key (user_id)
+      references user (user_id) on delete restrict on update restrict;
+
+alter table privilage_user add constraint fk_relationship_4 foreign key (privilege_type_id)
+      references privilege_type (privilege_type_id) on delete restrict on update restrict;
+
+alter table req_admin add constraint fk_relationship_22 foreign key (user_id)
+      references user (user_id) on delete restrict on update restrict;
+
+alter table sesi_matpel add constraint fk_relationship_14 foreign key (map_matpel_id)
+      references map_matpel_teacher (map_matpel_id) on delete restrict on update restrict;
+
+alter table siswa add constraint fk_relationship_18 foreign key (map_matpel_id)
+      references map_matpel_teacher (map_matpel_id) on delete restrict on update restrict;
+
+alter table siswa add constraint fk_relationship_21 foreign key (user_id)
+      references user (user_id) on delete restrict on update restrict;
+
+alter table teacher add constraint fk_relationship_17 foreign key (user_id)
+      references user (user_id) on delete restrict on update restrict;
+
+alter table ujian add constraint fk_relationship_16 foreign key (materi_id)
+      references materi (materi_id) on delete restrict on update restrict;
+
