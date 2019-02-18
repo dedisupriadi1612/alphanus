@@ -25,6 +25,99 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/flaticon.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/icomoon.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/css/style.css">
+	
+		
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		body {
+			font-family: 'Varela Round', sans-serif;
+		}
+		.modal-login {		
+			color: #636363;
+			width: 350px;
+		}
+		.modal-login .modal-content {
+			padding: 20px;
+			border-radius: 5px;
+			border: none;
+		}
+		.modal-login .modal-header {
+			border-bottom: none;   
+			position: relative;
+			justify-content: center;
+		}
+		.modal-login h4 {
+			text-align: center;
+			font-size: 26px;
+			margin: 30px 0 -15px;
+		}
+		.modal-login .form-control:focus {
+			border-color: #70c5c0;
+		}
+		.modal-login .form-control, .modal-login .btn {
+			min-height: 40px;
+			border-radius: 3px; 
+		}
+		.modal-login .close {
+			position: absolute;
+			top: -5px;
+			right: -5px;
+		}	
+		.modal-login .modal-footer {
+			background: #ecf0f1;
+			border-color: #dee4e7;
+			text-align: center;
+			justify-content: center;
+			margin: 0 -20px -20px;
+			border-radius: 5px;
+			font-size: 13px;
+		}
+		.modal-login .modal-footer a {
+			color: #999;
+		}		
+		.modal-login .avatar {
+			position: absolute;
+			margin: 0 auto;
+			left: 0;
+			right: 0;
+			top: -70px;
+			width: 95px;
+			height: 95px;
+			border-radius: 50%;
+			z-index: 9;
+			background: #2f89fc;
+			padding: 15px;
+			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+		}
+		.modal-login .avatar img {
+			width: 100%;
+		}
+		.modal-login.modal-dialog {
+			margin-top: 80px;
+		}
+		.modal-login .btn {
+			color: #fff;
+			border-radius: 4px;
+			background: #2f89fc;
+			text-decoration: none;
+			transition: all 0.4s;
+			line-height: normal;
+			border: none;
+		}
+		.modal-login .btn:hover, .modal-login .btn:focus {
+			background: #45aba6;
+			outline: none;
+		}
+		.trigger-btn {
+			display: inline-block;
+			margin: 100px auto;
+		}
+	</style>
   </head>
   <body>
     
@@ -37,21 +130,54 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-	          <li class="nav-item"><a class="nav-link" href="work.html">Work</a></li>
-	          <li class="nav-item"><a href="team.html" class="nav-link">Team</a></li>
-	          <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
-	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	          <li class="nav-item cta"><a href="contact.html" class="nav-link" data-toggle="modal" data-target="#modalRequest"><span>Get a Quote</span></a></li>
+	          <li class="nav-item active"><a href="<?php echo base_url();?>assets/index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="<?php echo base_url();?>assets/about.html" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="<?php echo base_url();?>assets/services.html" class="nav-link">Services</a></li>
+	          <li class="nav-item"><a class="nav-link" href="<?php echo base_url();?>assets/work.html">Work</a></li>
+	          <li class="nav-item"><a href="<?php echo base_url();?>assets/team.html" class="nav-link">Team</a></li>
+	          <li class="nav-item"><a href="<?php echo base_url();?>assets/pricing.html" class="nav-link">Pricing</a></li>
+	          <li class="nav-item"><a href="<?php echo base_url();?>assets/blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="<?php echo base_url();?>assets/contact.html" class="nav-link">Contact</a></li>
+			  <li class="nav-item"><a href="#myModal" class="nav-link" data-toggle="modal">Login</a></li>
+	          <li class="nav-item cta"><a href="<?php echo base_url();?>assets/contact.html" class="nav-link" data-toggle="modal" data-target="#modalRequest"><span>Get a Quote</span></a></li>
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
     <!-- END nav -->
     
+	
+	<!-- Modal HTML Login -->
+	<div id="myModal" class="modal fade">
+		<div class="modal-dialog modal-login">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div class="avatar">
+						<img src="<?php echo base_url();?>assets/images/avatar.png" alt="Avatar">
+					</div>				
+					<h4 class="modal-title">Member Login</h4>	
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">
+					<form name="login">
+						<div class="form-group">
+							<input type="text" class="form-control" name="username" placeholder="Username" required="required">		
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" name="password" placeholder="Password" required="required">	
+						</div>        
+						<div class="form-group">
+							<button type="submit" onclick="check(this.form)" value="Login" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<a href="#">Forgot Password?</a>
+				</div>
+			</div>
+		</div>
+	</div>     
+	<!-- END HTML Login -->
     <div class="hero-wrap">
       <div class="overlay"></div>
       <div class="container-fluid">
@@ -768,6 +894,19 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?php echo base_url();?>assets/js/google-map.js"></script>
   <script src="<?php echo base_url();?>assets/js/main.js"></script>
-    
+	<script language="javascript">
+		function check(form)/*function to check userid & password*/
+		{
+		 /*the following code checkes whether the entered userid and password are matching*/
+		 if(form.username.value == "admin" && form.password.value == "admin")
+		  {
+			window.open('<?php echo base_url();?>assets/admin/index.html')/*opens the target page while Id & password matches*/
+		  }
+		 else
+		 {
+		   alert("Error Password or Username")/*displays error message*/
+		  }
+		}
+	</script> 
   </body>
 </html>
