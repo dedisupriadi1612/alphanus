@@ -69,13 +69,13 @@
           <div class="one-half align-self-md-end align-self-sm-center">
           	<div class="slider-carousel owl-carousel">
           		<div class="item">
-			          <img src="images/dashboard_full_1.png" class="img-fluid img"alt="">
+			          <img src="<?php echo base_url();?>assets/images/dashboard_full_1.png" class="img-fluid img"alt="">
 		          </div>
 		          <div class="item">
-			          <img src="images/dashboard_full_2.png" class="img-fluid img"alt="">
+			          <img src="<?php echo base_url();?>assets/images/dashboard_full_2.png" class="img-fluid img"alt="">
 		          </div>
 		          <div class="item">
-			          <img src="images/dashboard_full_3.png" class="img-fluid img"alt="">
+			          <img src="<?php echo base_url();?>assets/images/dashboard_full_3.png" class="img-fluid img"alt="">
 		          </div>
 	          </div>
           </div>
@@ -134,7 +134,7 @@
       </div>
       <div class="container-wrap mt-5">
       	<div class="row d-flex no-gutters">
-      		<div class="col-md-6 img ftco-animate" style="background-image: url(images/about.jpg);">
+      		<div class="col-md-6 img ftco-animate" style="background-image: url(<?php echo base_url();?>assets/images/about.jpg);">
       		</div>
       		<div class="col-md-6 d-flex">
       			<div class="services-wrap">
@@ -175,7 +175,7 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(<?php echo base_url();?>assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
     	<div class="container">
     		<div class="row justify-content-center">
     			<div class="col-md-11">
@@ -229,7 +229,7 @@
         <div class="row">
         	<div class="col-md-4 ftco-animate">
         		<div class="work-entry">
-	        		<a href="#" class="img" style="background-image: url(images/work-1.jpg);">
+	        		<a href="#" class="img" style="background-image: url(<?php echo base_url();?>assets/images/work-1.jpg);">
 	        			<div class="text d-flex justify-content-center align-items-center">
 		        			<div class="p-3">
 		        				<span>Branding</span>
@@ -241,7 +241,7 @@
         	</div>
         	<div class="col-md-4 ftco-animate">
         		<div class="work-entry">
-	        		<a href="#" class="img" style="background-image: url(images/work-2.jpg);">
+	        		<a href="#" class="img" style="background-image: url(<?php echo base_url();?>assets/images/work-2.jpg);">
 	        			<div class="text d-flex justify-content-center align-items-center">
 		        			<div class="p-3">
 		        				<span>Branding</span>
@@ -253,7 +253,7 @@
         	</div>
         	<div class="col-md-4 ftco-animate">
         		<div class="work-entry">
-	        		<a href="#" class="img" style="background-image: url(images/work-3.jpg);">
+	        		<a href="#" class="img" style="background-image: url(<?php echo base_url();?>assets/images/work-3.jpg);">
 	        			<div class="text d-flex justify-content-center align-items-center">
 		        			<div class="p-3">
 		        				<span>Branding</span>
@@ -265,7 +265,7 @@
         	</div>
         	<div class="col-md-4 ftco-animate">
         		<div class="work-entry">
-	        		<a href="#" class="img" style="background-image: url(images/work-4.jpg);">
+	        		<a href="#" class="img" style="background-image: url(<?php echo base_url();?>assets/images/work-4.jpg);">
 	        			<div class="text d-flex justify-content-center align-items-center">
 		        			<div class="p-3">
 		        				<span>Branding</span>
@@ -277,7 +277,7 @@
         	</div>
         	<div class="col-md-4 ftco-animate">
         		<div class="work-entry">
-	        		<a href="#" class="img" style="background-image: url(images/work-5.jpg);">
+	        		<a href="#" class="img" style="background-image: url(<?php echo base_url();?>assets/images/work-5.jpg);">
 	        			<div class="text d-flex justify-content-center align-items-center">
 		        			<div class="p-3">
 		        				<span>Branding</span>
@@ -289,7 +289,7 @@
         	</div>
         	<div class="col-md-4 ftco-animate">
         		<div class="work-entry">
-	        		<a href="#" class="img" style="background-image: url(images/work-6.jpg);">
+	        		<a href="#" class="img" style="background-image: url(<?php echo base_url();?>assets/images/work-6.jpg);">
 	        			<div class="text d-flex justify-content-center align-items-center">
 		        			<div class="p-3">
 		        				<span>Branding</span>
@@ -465,7 +465,7 @@
             <div class="carousel-testimony owl-carousel ftco-owl">
               <div class="item">
                 <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
+                  <div class="user-img mb-5" style="background-image: url(<?php echo base_url();?>assets/images/person_1.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
@@ -479,7 +479,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
+                  <div class="user-img mb-5" style="background-image: url(<?php echo base_url();?>assets/images/person_2.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
@@ -493,7 +493,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
+                  <div class="user-img mb-5" style="background-image: url(<?php echo base_url();?>assets/images/person_3.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
@@ -507,7 +507,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
+                  <div class="user-img mb-5" style="background-image: url(<?php echo base_url();?>assets/images/person_1.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
@@ -521,7 +521,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
+                  <div class="user-img mb-5" style="background-image: url(<?php echo base_url();?>assets/images/person_1.jpg)">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
@@ -574,7 +574,7 @@
         <div class="row">
           <div class="col-md-4 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('<?php echo base_url();?>assets/images/image_1.jpg');">
               </a>
               <div class="text py-4">
                 <div class="meta mb-3">
@@ -588,7 +588,7 @@
           </div>
           <div class="col-md-4 ftco-animate">
             <div class="blog-entry" data-aos-delay="100">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('<?php echo base_url();?>assets/images/image_2.jpg');">
               </a>
               <div class="text py-4">
                 <div class="meta mb-3">
@@ -602,7 +602,7 @@
           </div>
           <div class="col-md-4 ftco-animate">
             <div class="blog-entry" data-aos-delay="200">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url('<?php echo base_url();?>assets/images/image_3.jpg');">
               </a>
               <div class="text py-4">
                 <div class="meta mb-3">
@@ -648,7 +648,7 @@
             <div class="ftco-footer-widget mb-4">
               <h2 class="ftco-heading-2">Recent Blog</h2>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(<?php echo base_url();?>assets/images/image_1.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">
@@ -659,7 +659,7 @@
                 </div>
               </div>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url(<?php echo base_url();?>assets/images/image_2.jpg);"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">
