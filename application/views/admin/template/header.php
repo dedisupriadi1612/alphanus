@@ -32,7 +32,9 @@
 
     <!-- Main CSS-->
     <link href="<?php echo base_url();?>assets/admin/css/theme.css" rel="stylesheet" media="all">
+	<link href="<?php echo base_url();?>assets/admin/style.css" rel="stylesheet" media="all">
 	
+	<?php $this->load->view('admin/template/style')?>
 </head>
 
 <body class="animsition">
