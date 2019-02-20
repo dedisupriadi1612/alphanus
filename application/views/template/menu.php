@@ -52,7 +52,7 @@
 					</div>
 					<div class="modal-footer">
 						<a href="#">Forgot Password?</a>
-						<a href="#myRegister" class="nav-link" data-toggle="modal">Sing Up</a>
+						<a href="#myRegister" class="nav-link" data-toggle="modal">Sign Up</a>
 			   
 					</div>
 				</div>
@@ -82,7 +82,7 @@
 								<input type="password" class="form-control" name="password" placeholder="Password" required="required">	
 							</div>        
 							<div class="form-group">
-								<button type="submit" onclick="check(this.form)" value="Sing Up" class="btn btn-primary btn-lg btn-block login-btn">Sing Up</button>
+								<button type="submit" onclick="check(this.form)" value="Sign Up" class="btn btn-primary btn-lg btn-block login-btn">Sign Up</button>
 							</div>
 						</form>
 					</div>
