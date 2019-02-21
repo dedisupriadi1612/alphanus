@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>Alphanus</title>
 
     <!-- Fontfaces CSS-->
     <link href="<?php echo base_url();?>assets/admin/css/font-face.css" rel="stylesheet" media="all">
@@ -22,6 +22,12 @@
     <link href="<?php echo base_url();?>assets/admin/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
+<<<<<<< .mine
+    <!-- <link href="<?php //echo base_url();?>assets/admin/vendor/animsition/animsition.min.css" rel="stylesheet" media="all"> -->
+||||||| .r30
+    <link href="<?php echo base_url();?>assets/admin/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+=======
+>>>>>>> .r33
     <link href="<?php echo base_url();?>assets/admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="<?php echo base_url();?>assets/admin/vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="<?php echo base_url();?>assets/admin/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
@@ -32,7 +38,7 @@
     <!-- Main CSS-->
     <link href="<?php echo base_url();?>assets/admin/css/theme.css" rel="stylesheet" media="all">
 	<link href="<?php echo base_url();?>assets/admin/style.css" rel="stylesheet" media="all">
-	
+
 	<?php $this->load->view('admin/template/style')?>
 </head>
 
