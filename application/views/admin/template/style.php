@@ -2,7 +2,20 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/cropper/cropper.min.css">
 	
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>assets/admin/img/favicon.ico">
-  
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/font-awesome.min.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/owl.carousel.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/owl.theme.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/owl.transitions.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/animate.css">
     <!-- normalize CSS
 		============================================ -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/normalize.css">
