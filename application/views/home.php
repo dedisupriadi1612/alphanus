@@ -5,14 +5,17 @@
         <div class="slider-text d-md-flex align-items-center" data-scrollax-parent="true">
 
           <div class="one-forth ftco-animate align-self-md-center" data-scrollax=" properties: { translateY: '70%' }">
-          	<h1 class="mb-4"> Template for
-              <strong class="typewrite" data-period="4000" data-type='[ "Digital Agency", "Portfolio", "SEO Agency", "Business" ]'>
+          	<h1 class="mb-4"> Website Untuk
+              <strong class="typewrite" data-period="4000" data-type='[ "Belajar", "Berkarya", "Berbagi" ]'>
                 <span class="wrap"></span>
               </strong>
             </h1>
-            <p class="mb-md-5 mb-sm-3" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#" class="btn btn-primary px-4 py-3">Get a Quote</a> <a href="#" class="btn btn-primary btn-outline-primary px-4 py-3">Our Portfolio</a></p>
+            <p class="mb-md-5 mb-sm-3" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+							Website yang buat untuk kebutuhan pembelajaran yang dimana ada interactive coding, dan juga banyak pembelajaran yang bisa di pelajari dengan lebih mudah. dan jika anda ingin membagikan ilmu anda di website ini juga bisa saling membantu satu sama lainnya.
+						</p>
+            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#" class="btn btn-primary px-4 py-3">Daftar Sekarang</a></p>
           </div>
+
           <div class="one-half align-self-md-end align-self-sm-center">
           	<div class="slider-carousel owl-carousel">
           		<div class="item">
@@ -26,10 +29,11 @@
 		          </div>
 	          </div>
           </div>
+
         </div>
       </div>
     </div>
-    
+
     <section class="ftco-section ftco-section-2">
     	<div class="overlay"></div>
     	<div class="container">
@@ -40,7 +44,7 @@
     		</div>
     	</div>
     </section>
-  
+
     <section class="ftco-section ftco-services">
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-5">
@@ -57,7 +61,7 @@
                 <h3 class="heading">Market Research</h3>
                 <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
               </div>
-            </div>      
+            </div>
           </div>
           <div class="col-md-4 d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services d-block text-center">
@@ -66,7 +70,7 @@
                 <h3 class="heading">Business Strategy</h3>
                 <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
               </div>
-            </div>    
+            </div>
           </div>
           <div class="col-md-4 d-flex align-self-stretch ftco-animate">
             <div class="media block-6 services d-block text-center">
@@ -75,7 +79,7 @@
                 <h3 class="heading">Audience Analytics</h3>
                 <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic.</p>
               </div>
-            </div>      
+            </div>
           </div>
         </div>
       </div>
@@ -122,48 +126,7 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(<?php echo base_url();?>assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
-    	<div class="container">
-    		<div class="row justify-content-center">
-    			<div class="col-md-11">
-		    		<div class="row">
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		                <strong class="number" data-number="6780">0</strong>
-		                <span>Happy Clients</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		                <strong class="number" data-number="4500">0</strong>
-		                <span>Running Projects</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		                <strong class="number" data-number="4200">0</strong>
-		                <span>Project Completed</span>
-		              </div>
-		            </div>
-		          </div>
-		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
-		            <div class="block-18 text-center">
-		              <div class="text">
-		                <strong class="number" data-number="320">0</strong>
-		                <span>Cups of Coffe</span>
-		              </div>
-		            </div>
-		          </div>
-		        </div>
-	        </div>
-        </div>
-    	</div>
-    </section>
+
 
     <section class="ftco-section ftco-work">
     	<div class="container-fluid">
@@ -250,154 +213,8 @@
     	</div>
     </section>
 
-    <section class="ftco-section bg-light">
-    	<div class="container">
-    		<div class="row justify-content-center mb-5 pb-5">
-          <div class="col-md-7 text-center heading-section ftco-animate">
-            <h2 class="mb-3">Our Best Pricing</h2>
-            <span class="subheading">Pricing Plans</span>
-          </div>
-        </div>
-    		<div class="row">
-	        <div class="col-md-3 ftco-animate">
-	          <div class="block-7">
-	            <div class="text-center">
-	            <h2 class="heading">Free</h2>
-	            <span class="price"><sup>$</sup> <span class="number">0</span></span>
-	            <span class="excerpt d-block">100% free. Forever</span>
-	            <a href="#" class="btn btn-primary d-block px-2 py-3 mb-4">Get Started</a>
-	            
-	            <h3 class="heading-2 mb-4">Enjoy All The Features</h3>
-	            
-	            <ul class="pricing-text">
-	              <li><strong>150 GB</strong> Bandwidth</li>
-	              <li><strong>100 GB</strong> Storage</li>
-	              <li><strong>$1.00 / GB</strong> Overages</li>
-	              <li>All features</li>
-	            </ul>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="col-md-3 ftco-animate">
-	          <div class="block-7">
-	            <div class="text-center">
-	            <h2 class="heading">Startup</h2>
-	            <span class="price"><sup>$</sup> <span class="number">19</span></span>
-	            <span class="excerpt d-block">All features are included</span>
-	            <a href="#" class="btn btn-primary btn-outline-primary d-block px-3 py-3 mb-4">Get Started</a>
-	            
-	            <h3 class="heading-2 mb-4">Enjoy All The Features</h3>
-	            
-	            <ul class="pricing-text">
-	              <li><strong>450 GB</strong> Bandwidth</li>
-	              <li><strong>400 GB</strong> Storage</li>
-	              <li><strong>$2.00 / GB</strong> Overages</li>
-	              <li>All features</li>
-	            </ul>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="col-md-3 ftco-animate">
-	          <div class="block-7">
-	            <div class="text-center">
-	            <h2 class="heading">Premium</h2>
-	            <span class="price"><sup>$</sup> <span class="number">49</span></span>
-	            <span class="excerpt d-block">All features are included</span>
-	            <a href="#" class="btn btn-primary btn-outline-primary d-block px-3 py-3 mb-4">Get Started</a>
-	            
-	            <h3 class="heading-2 mb-4">Enjoy All The Features</h3>
-	            
-	            <ul class="pricing-text">
-	              <li><strong>250 GB</strong> Bandwidth</li>
-	              <li><strong>200 GB</strong> Storage</li>
-	              <li><strong>$5.00 / GB</strong> Overages</li>
-	              <li>All features</li>
-	            </ul>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="col-md-3 ftco-animate">
-	          <div class="block-7">
-	            <div class="text-center">
-	            <h2 class="heading">Pro</h2>
-	            <span class="price"><sup>$</sup> <span class="number">99</span></span>
-	            <span class="excerpt d-block">All features are included</span>
-	            <a href="#" class="btn btn-primary btn-outline-primary d-block px-3 py-3 mb-4">Get Started</a>
-	            
-	            <h3 class="heading-2 mb-4">Enjoy All The Features</h3>
-	            
-	            <ul class="pricing-text">
-	              <li><strong>450 GB</strong> Bandwidth</li>
-	              <li><strong>400 GB</strong> Storage</li>
-	              <li><strong>$20.00 / GB</strong> Overages</li>
-	              <li>All features</li>
-	            </ul>
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-    	</div>
-    </section>
 
-    <section class="ftco-quote">
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-md-6 pr-md-5 aside-stretch py-5 choose">
-    				<div class="heading-section heading-section-white mb-5 ftco-animate">
-	            <h2 class="mb-2">Reasons for Choosing Us </h2>
-	          </div>
-	          <div class="ftco-animate">
-	          	<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar. Because there were thousands of bad Commas, wild Question Marks and devious Semikoli</p>
-	          	<ul class="un-styled my-5">
-	          		<li><span class="icon-check"></span>Consectetur adipisicing elit</li>
-	          		<li><span class="icon-check"></span>Adipisci repellat accusamus</li>
-	          		<li><span class="icon-check"></span>Tempore reprehenderit vitae</li>
-	          	</ul>
-	          </div>
-    			</div>
-    			<div class="col-md-6 py-5 pl-md-5">
-    				<div class="heading-section mb-5 ftco-animate">
-	            <h2 class="mb-2">Get a Free Quote</h2>
-	          </div>
-	          <form action="#" class="ftco-animate">
-	          	<div class="row">
-	          		<div class="col-md-6">
-		              <div class="form-group">
-		                <input type="text" class="form-control" placeholder="Full Name">
-		              </div>
-	              </div>
-	              <div class="col-md-6">
-		              <div class="form-group">
-		                <input type="text" class="form-control" placeholder="Email">
-		              </div>
-	              </div>
-	              <div class="col-md-6">
-	              	<div class="form-group">
-		                <input type="text" class="form-control" placeholder="Phone">
-		              </div>
-		            </div>
-	              <div class="col-md-6">
-	              	<div class="form-group">
-		                <input type="text" class="form-control" placeholder="Website">
-		              </div>
-		            </div>
-		            <div class="col-md-12">
-		              <div class="form-group">
-		                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-		              </div>
-		            </div>
-		            <div class="col-md-12">
-		              <div class="form-group">
-		                <input type="submit" value="Get a Quote" class="btn btn-primary py-3 px-5">
-		              </div>
-	              </div>
-              </div>
-            </form>
-    			</div>
-    		</div>
-    	</div>
-    </section>
-		
+
 
 		<section class="ftco-section testimony-section bg-light">
       <div class="container">
@@ -487,28 +304,7 @@
     </section>
 
 
-    <section class="ftco-section-parallax">
-      <div class="parallax-img d-flex align-items-center">
-        <div class="container">
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-              <h2>Subcribe to our Newsletter</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-              <div class="row d-flex justify-content-center mt-5">
-                <div class="col-md-8">
-                  <form action="#" class="subscribe-form">
-                    <div class="form-group d-flex">
-                      <input type="text" class="form-control" placeholder="Enter email address">
-                      <input type="submit" value="Subscribe" class="submit px-3">
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
 
     <section class="ftco-section">
       <div class="container">
@@ -565,6 +361,6 @@
       </div>
     </section>
 
-        
+
 <?php $this->load->view('template/footer')?>
 

@@ -3,7 +3,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="<?php echo base_url();?>">
                             <img src="<?php echo base_url();?>assets/admin/images/icon/logo.png" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -30,7 +30,7 @@
                                 <li><a title="Blog Details" href="<?php echo base_url().'Blogdetails' ?>"><i class="fa fa-tags sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Blog Details</span></a></li>
                                 </ul>
                         </li>
-						
+
 						<li>
 							<a class="js-arrow" href="#">
                                 <i class="fa big-icon fa-envelope icon-wrap"></i>Mailbox</a>
@@ -40,7 +40,7 @@
                                 <li><a title="Compose Mail" href="<?php echo base_url().'Compose' ?>"><i class="fa fa-paper-plane sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Compose Mail</span></a></li>
                             </ul>
                         </li>
-                        
+
 						<li>
 							<a class="js-arrow" href="#">
                                 <i class="fa big-icon fa-flask icon-wrap"></i>Interface</a>
@@ -114,7 +114,7 @@
                                 <li><a title="Blog Details" href="<?php echo base_url().'Blogdetails' ?>"><i class="fa fa-tags sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Blog Details</span></a></li>
                                 </ul>
                         </li>
-						
+
 						<li>
 							<a class="js-arrow" href="#">
                                 <i class="fa big-icon fa-envelope icon-wrap"></i>Mailbox</a>
@@ -124,7 +124,7 @@
                                 <li><a title="Compose Mail" href="<?php echo base_url().'Compose' ?>"><i class="fa fa-paper-plane sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Compose Mail</span></a></li>
                             </ul>
                         </li>
-                        
+
 						<li>
 							<a class="js-arrow" href="#">
                                 <i class="fa big-icon fa-flask icon-wrap"></i>Interface</a>
@@ -139,7 +139,7 @@
                                 <li><a title="Images Cropper" href="<?php echo base_url().'ImagesCropper' ?>"><i class="fa fa-file-image-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Images Cropper</span></a></li>
                             </ul>
                         </li>
-						
+
                         <li>
                             <a href="<?php echo base_url().'Chart' ?>" class="nav-link"><i class="fas fa-chart-bar"></i>Charts</a>
                         </li>

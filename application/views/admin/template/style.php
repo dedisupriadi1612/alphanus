@@ -1,6 +1,6 @@
 	<!-- cropper CSS ============================================ -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/cropper/cropper.min.css">
-	
+
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>assets/admin/img/favicon.ico">
   
     <!-- normalize CSS
@@ -38,12 +38,12 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="<?php echo base_url();?>assets/admin/js/vendor/modernizr-2.8.3.min.js"></script>
-	
+
 	 <!-- codemirror CSS
 		============================================ -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/code-editor/codemirror.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/code-editor/ambiance.css">
-	
+
 	 <!-- tree viewer CSS
 		============================================ -->
     <link rel="stylesheet" href="<?php echo base_url();?>assets/admin/css/tree-viewer/tree-viewer.css">

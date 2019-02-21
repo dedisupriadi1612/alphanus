@@ -1,7 +1,7 @@
 <?php $this->load->view('admin/template/header')?>
 
     <?php $this->load->view('admin/template/menu')?>
- 
+
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
