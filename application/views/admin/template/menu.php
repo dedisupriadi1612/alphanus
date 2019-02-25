@@ -1,352 +1,660 @@
-<!-- HEADER MOBILE-->
-        <header class="header-mobile d-block d-lg-none">
-            <div class="header-mobile__bar">
-                <div class="container-fluid">
-                    <div class="header-mobile-inner">
-                        <a class="logo" href="<?php echo base_url();?>">
-                            <img src="<?php echo base_url();?>assets/admin/images/icon/logo.png" alt="CoolAdmin" />
+
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="START TYPING...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="<?php echo base_url().'Dashboard'?>">ADMIN - NeeDuck</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Call Search -->
+                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+                    <!-- #END# Call Search -->
+                    <!-- Notifications -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="material-icons">notifications</i>
+                            <span class="label-count">7</span>
                         </a>
-                        <button class="hamburger hamburger--slider" type="button">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="header">NOTIFICATIONS</li>
+                            <li class="body">
+                                <ul class="menu">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-light-green">
+                                                <i class="material-icons">person_add</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4>12 new members joined</h4>
+                                                <p>
+                                                    <i class="material-icons">access_time</i> 14 mins ago
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-cyan">
+                                                <i class="material-icons">add_shopping_cart</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4>4 sales made</h4>
+                                                <p>
+                                                    <i class="material-icons">access_time</i> 22 mins ago
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-red">
+                                                <i class="material-icons">delete_forever</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4><b>Nancy Doe</b> deleted account</h4>
+                                                <p>
+                                                    <i class="material-icons">access_time</i> 3 hours ago
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-orange">
+                                                <i class="material-icons">mode_edit</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4><b>Nancy</b> changed name</h4>
+                                                <p>
+                                                    <i class="material-icons">access_time</i> 2 hours ago
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-blue-grey">
+                                                <i class="material-icons">comment</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4><b>John</b> commented your post</h4>
+                                                <p>
+                                                    <i class="material-icons">access_time</i> 4 hours ago
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-light-green">
+                                                <i class="material-icons">cached</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4><b>John</b> updated status</h4>
+                                                <p>
+                                                    <i class="material-icons">access_time</i> 3 hours ago
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="icon-circle bg-purple">
+                                                <i class="material-icons">settings</i>
+                                            </div>
+                                            <div class="menu-info">
+                                                <h4>Settings updated</h4>
+                                                <p>
+                                                    <i class="material-icons">access_time</i> Yesterday
+                                                </p>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="javascript:void(0);">View All Notifications</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- #END# Notifications -->
+                    <!-- Tasks -->
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="material-icons">flag</i>
+                            <span class="label-count">9</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">TASKS</li>
+                            <li class="body">
+                                <ul class="menu tasks">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <h4>
+                                                Footer display issue
+                                                <small>32%</small>
+                                            </h4>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <h4>
+                                                Make new buttons
+                                                <small>45%</small>
+                                            </h4>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-cyan" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <h4>
+                                                Create new dashboard
+                                                <small>54%</small>
+                                            </h4>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-teal" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 54%">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <h4>
+                                                Solve transition issue
+                                                <small>65%</small>
+                                            </h4>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 65%">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <h4>
+                                                Answer GitHub questions
+                                                <small>92%</small>
+                                            </h4>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-purple" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 92%">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="javascript:void(0);">View All Tasks</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- #END# Tasks -->
+                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                <div class="image">
+                    <img src="<?php echo base_url();?>assets/admin/images/user.png" width="48" height="48" alt="User" />
+                </div>
+                <div class="info-container">
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
+                    <div class="email">john.doe@example.com</div>
+                    <div class="btn-group user-helper-dropdown">
+                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <nav class="navbar-mobile">
-                <div class="container-fluid">
-                    <ul class="navbar-mobile__list list-unstyled">
-                        <li class="has-sub">
-                           <a class="js-arrow" href="<?php echo base_url().'Dashboard' ?>">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                        </li>
-						<li>
-							<a class="js-arrow" href="#">
-                                <i class="fa big-icon fa-pie-chart icon-wrap"></i>Miscellaneous</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li><a title="File Manager" href="<?php echo base_url().'Filemanager' ?>"><i class="fa fa-folder sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">File Manager</span></a></li>
-                                <li><a title="Blog" href="<?php echo base_url().'BlogAdmin' ?>"><i class="fa fa-square sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Blog</span></a></li>
-                                <li><a title="Blog Details" href="<?php echo base_url().'Blogdetails' ?>"><i class="fa fa-tags sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Blog Details</span></a></li>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="active">
+                        <a href="<?php echo base_url().'Dashboard'?>">
+                            <i class="material-icons">home</i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url().'Typography'?>">
+                            <i class="material-icons">text_fields</i>
+                            <span>Typography</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url().'HelperClasses'?>">
+                            <i class="material-icons">layers</i>
+                            <span>Helper Classes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">widgets</i>
+                            <span>Widgets</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <span>Cards</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="<?php echo base_url().'Basic'?>">Basic</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo base_url().'Colored'?>">Colored</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo base_url().'NoHeader'?>">No Header</a>
+                                    </li>
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <span>Infobox</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="<?php echo base_url().'Infobox1'?>">Infobox-1</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo base_url().'Infobox2'?>">Infobox-2</a>
+                                    </li>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">assignment</i>
+                            <span>Forms</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo base_url().'BasicForm'?>">Basic Form Elements</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'Advanced'?>">Advanced Form Elements</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'Examples'?>">Form Examples</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'Validation'?>">Form Validation</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'Wizard'?>">Form Wizard</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'Editors'?>">Editors</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">view_list</i>
+                            <span>Tables</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo base_url().'NormalTables'?>">Normal Tables</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'JqueryDatatable'?>">Jquery Datatables</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'EditableTable'?>">Editable Tables</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">perm_media</i>
+                            <span>Medias</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo base_url().'ImageGallery'?>">Image Gallery</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'Carousel'?>">Carousel</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">pie_chart</i>
+                            <span>Charts</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo base_url().'Morris'?>">Morris</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'Flot'?>">Flot</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'ChartJs'?>">ChartJS</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'Sparkline'?>">Sparkline</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'JqueryKnob'?>">Jquery Knob</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">content_copy</i>
+                            <span>Example Pages</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo base_url().'Profil'?>">Profile</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'SignIn'?>">Sign In</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'SignUp'?>">Sign Up</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'ForgotPassword'?>">Forgot Password</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'Blank'?>">Blank Page</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'Error404'?>">404 - Not Found</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'Error500'?>">500 - Server Error</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">map</i>
+                            <span>Maps</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="<?php echo base_url().'Google'?>">Google Map</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'Yandex'?>">YandexMap</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo base_url().'jvectormap'?>">jVectorMap</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">trending_down</i>
+                            <span>Multi Level Menu</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <span>Menu Item</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);">
+                                    <span>Menu Item - 2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="menu-toggle">
+                                    <span>Level - 2</span>
+                                </a>
+                                <ul class="ml-menu">
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <span>Menu Item</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="menu-toggle">
+                                            <span>Level - 3</span>
+                                        </a>
+                                        <ul class="ml-menu">
+                                            <li>
+                                                <a href="javascript:void(0);">
+                                                    <span>Level - 4</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url().'Changelogs'?>">
+                            <i class="material-icons">update</i>
+                            <span>Changelogs</span>
+                        </a>
+                    </li>
+                    <li class="header">LABELS</li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons col-red">donut_large</i>
+                            <span>Important</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons col-amber">donut_large</i>
+                            <span>Warning</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <i class="material-icons col-light-blue">donut_large</i>
+                            <span>Information</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                <div class="copyright">
+                    &copy; <script>document.write(new Date().getFullYear());</script> NeeDuck</a></a>.
+                </div>
+                <div class="version">
+                    <b>Version: </b> 1.0.5
+                </div>
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+        <!-- Right Sidebar -->
+        <aside id="rightsidebar" class="right-sidebar">
+            <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                <li role="presentation" class="active"><a href="#skins" data-toggle="tab">SKINS</a></li>
+                <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in active in active" id="skins">
+                    <ul class="demo-choose-skin">
+                        <li data-theme="red" class="active">
+                            <div class="red"></div>
+                            <span>Red</span>
                         </li>
-
-						<li>
-							<a class="js-arrow" href="#">
-                                <i class="fa big-icon fa-envelope icon-wrap"></i>Mailbox</a>
-                           <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li><a title="Inbox" href="<?php echo base_url().'Mailbox' ?>"><i class="fa fa-inbox sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Inbox</span></a></li>
-                                <li><a title="View Mail" href="<?php echo base_url().'View' ?>"><i class="fa fa-television sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">View Mail</span></a></li>
-                                <li><a title="Compose Mail" href="<?php echo base_url().'Compose' ?>"><i class="fa fa-paper-plane sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Compose Mail</span></a></li>
-                            </ul>
+                        <li data-theme="pink">
+                            <div class="pink"></div>
+                            <span>Pink</span>
                         </li>
-
-						<li>
-							<a class="js-arrow" href="#">
-                                <i class="fa big-icon fa-flask icon-wrap"></i>Interface</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li><a title="Google Map" href="<?php echo base_url().'GoogleMap' ?>"><i class="fa fa-map-marker sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Google Map</span></a></li>
-                                <li><a title="Data Maps" href="<?php echo base_url().'DataMaps' ?>"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Data Maps</span></a></li>
-                                <li><a title="Pdf Viewer" href="<?php echo base_url().'PdfViewer' ?>"><i class="fa fa-file-pdf-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Pdf Viewer</span></a></li>
-                                <li><a title="X-Editable" href="<?php echo base_url().'Xeditable' ?>"><i class="fa fa-fighter-jet sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">X-Editable</span></a></li>
-                                <li><a title="Code Editor" href="<?php echo base_url().'CodeEditor' ?>"><i class="fa fa-code sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Code Editor</span></a></li>
-                                <li><a title="Tree View" href="<?php echo base_url().'Tree' ?>"><i class="fa fa-frown-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Tree View</span></a></li>
-                                <li><a title="Preloader" href="<?php echo base_url().'Preloader' ?>"><i class="fa fa-circle sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Preloader</span></a></li>
-                                <li><a title="Images Cropper" href="<?php echo base_url().'ImagesCropper' ?>"><i class="fa fa-file-image-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Images Cropper</span></a></li>
-                            </ul>
+                        <li data-theme="purple">
+                            <div class="purple"></div>
+                            <span>Purple</span>
                         </li>
-                        <li>
-							<a href="<?php echo base_url().'Chart' ?>" class="nav-link"><i class="fas fa-chart-bar"></i>Charts</a>
+                        <li data-theme="deep-purple">
+                            <div class="deep-purple"></div>
+                            <span>Deep Purple</span>
                         </li>
-                        <li>
-                            <a href="<?php echo base_url().'Dashboard' ?>">
-                                <i class="fas fa-table"></i>Tables</a>
+                        <li data-theme="indigo">
+                            <div class="indigo"></div>
+                            <span>Indigo</span>
                         </li>
-                        <li>
-                            <a href="<?php echo base_url().'Dashboard' ?>">
-                                <i class="far fa-check-square"></i>Forms</a>
+                        <li data-theme="blue">
+                            <div class="blue"></div>
+                            <span>Blue</span>
                         </li>
-                        <li>
-                            <a href="<?php echo base_url().'Dashboard' ?>">
-                                <i class="fas fa-map-marker-alt"></i>Maps</a>
+                        <li data-theme="light-blue">
+                            <div class="light-blue"></div>
+                            <span>Light Blue</span>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="<?php echo base_url().'Dashboard' ?>">Login</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url().'Dashboard' ?>">Register</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url().'Dashboard' ?>">Forget Password</a>
-                                </li>
-                            </ul>
+                        <li data-theme="cyan">
+                            <div class="cyan"></div>
+                            <span>Cyan</span>
+                        </li>
+                        <li data-theme="teal">
+                            <div class="teal"></div>
+                            <span>Teal</span>
+                        </li>
+                        <li data-theme="green">
+                            <div class="green"></div>
+                            <span>Green</span>
+                        </li>
+                        <li data-theme="light-green">
+                            <div class="light-green"></div>
+                            <span>Light Green</span>
+                        </li>
+                        <li data-theme="lime">
+                            <div class="lime"></div>
+                            <span>Lime</span>
+                        </li>
+                        <li data-theme="yellow">
+                            <div class="yellow"></div>
+                            <span>Yellow</span>
+                        </li>
+                        <li data-theme="amber">
+                            <div class="amber"></div>
+                            <span>Amber</span>
+                        </li>
+                        <li data-theme="orange">
+                            <div class="orange"></div>
+                            <span>Orange</span>
+                        </li>
+                        <li data-theme="deep-orange">
+                            <div class="deep-orange"></div>
+                            <span>Deep Orange</span>
+                        </li>
+                        <li data-theme="brown">
+                            <div class="brown"></div>
+                            <span>Brown</span>
+                        </li>
+                        <li data-theme="grey">
+                            <div class="grey"></div>
+                            <span>Grey</span>
+                        </li>
+                        <li data-theme="blue-grey">
+                            <div class="blue-grey"></div>
+                            <span>Blue Grey</span>
+                        </li>
+                        <li data-theme="black">
+                            <div class="black"></div>
+                            <span>Black</span>
                         </li>
                     </ul>
                 </div>
-            </nav>
-        </header>
-        <!-- END HEADER MOBILE-->
-
-        <!-- MENU SIDEBAR-->
-        <aside class="menu-sidebar d-none d-lg-block">
-            <div class="logo">
-                <a href="#">
-                    <img src="<?php echo base_url();?>assets/admin/images/icon/logo.png" alt="Cool Admin" />
-                </a>
-            </div>
-            <div class="menu-sidebar__content js-scrollbar1">
-                <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
-                            <a class="js-arrow" href="<?php echo base_url().'Dashboard' ?>">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                        </li>
-						<li>
-							<a class="js-arrow" href="#">
-                                <i class="fa big-icon fa-pie-chart icon-wrap"></i>Miscellaneous</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li><a title="File Manager" href="<?php echo base_url().'Filemanager' ?>"><i class="fa fa-folder sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">File Manager</span></a></li>
-                                <li><a title="Blog" href="<?php echo base_url().'BlogAdmin' ?>"><i class="fa fa-square sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Blog</span></a></li>
-                                <li><a title="Blog Details" href="<?php echo base_url().'Blogdetails' ?>"><i class="fa fa-tags sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Blog Details</span></a></li>
-                                </ul>
-                        </li>
-
-						<li>
-							<a class="js-arrow" href="#">
-                                <i class="fa big-icon fa-envelope icon-wrap"></i>Mailbox</a>
-                           <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li><a title="Inbox" href="<?php echo base_url().'Mailbox' ?>"><i class="fa fa-inbox sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Inbox</span></a></li>
-                                <li><a title="View Mail" href="<?php echo base_url().'View' ?>"><i class="fa fa-television sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">View Mail</span></a></li>
-                                <li><a title="Compose Mail" href="<?php echo base_url().'Compose' ?>"><i class="fa fa-paper-plane sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Compose Mail</span></a></li>
-                            </ul>
-                        </li>
-
-						<li>
-							<a class="js-arrow" href="#">
-                                <i class="fa big-icon fa-flask icon-wrap"></i>Interface</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li><a title="Google Map" href="<?php echo base_url().'GoogleMap' ?>"><i class="fa fa-map-marker sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Google Map</span></a></li>
-                                <li><a title="Data Maps" href="<?php echo base_url().'DataMaps' ?>"><i class="fa fa-map-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Data Maps</span></a></li>
-                                <li><a title="Pdf Viewer" href="<?php echo base_url().'PdfViewer' ?>"><i class="fa fa-file-pdf-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Pdf Viewer</span></a></li>
-                                <li><a title="X-Editable" href="<?php echo base_url().'Xeditable' ?>"><i class="fa fa-fighter-jet sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">X-Editable</span></a></li>
-                                <li><a title="Code Editor" href="<?php echo base_url().'CodeEditor' ?>"><i class="fa fa-code sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Code Editor</span></a></li>
-                                <li><a title="Tree View" href="<?php echo base_url().'Tree' ?>"><i class="fa fa-frown-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Tree View</span></a></li>
-                                <li><a title="Preloader" href="<?php echo base_url().'Preloader' ?>"><i class="fa fa-circle sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Preloader</span></a></li>
-                                <li><a title="Images Cropper" href="<?php echo base_url().'ImagesCropper' ?>"><i class="fa fa-file-image-o sub-icon-mg" aria-hidden="true"></i> <span class="mini-sub-pro">Images Cropper</span></a></li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="<?php echo base_url().'Chart' ?>" class="nav-link"><i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url().'Table' ?>">
-                                <i class="fas fa-table"></i>Tables</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url().'Form' ?>">
-                                <i class="far fa-check-square"></i>Forms</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url().'Map' ?>">
-                                <i class="fas fa-map-marker-alt"></i>Maps</a>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="<?php echo base_url().'Login' ?>">Login</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url().'RegisterAdmin' ?>">Register</a>
-                                </li>
-                                <li>
-                                    <a href="<?php echo base_url().'forget' ?>">Forget Password</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
+                <div role="tabpanel" class="tab-pane fade" id="settings">
+                    <div class="demo-settings">
+                        <p>GENERAL SETTINGS</p>
+                        <ul class="setting-list">
+                            <li>
+                                <span>Report Panel Usage</span>
+                                <div class="switch">
+                                    <label><input type="checkbox" checked><span class="lever"></span></label>
+                                </div>
+                            </li>
+                            <li>
+                                <span>Email Redirect</span>
+                                <div class="switch">
+                                    <label><input type="checkbox"><span class="lever"></span></label>
+                                </div>
+                            </li>
+                        </ul>
+                        <p>SYSTEM SETTINGS</p>
+                        <ul class="setting-list">
+                            <li>
+                                <span>Notifications</span>
+                                <div class="switch">
+                                    <label><input type="checkbox" checked><span class="lever"></span></label>
+                                </div>
+                            </li>
+                            <li>
+                                <span>Auto Updates</span>
+                                <div class="switch">
+                                    <label><input type="checkbox" checked><span class="lever"></span></label>
+                                </div>
+                            </li>
+                        </ul>
+                        <p>ACCOUNT SETTINGS</p>
+                        <ul class="setting-list">
+                            <li>
+                                <span>Offline</span>
+                                <div class="switch">
+                                    <label><input type="checkbox"><span class="lever"></span></label>
+                                </div>
+                            </li>
+                            <li>
+                                <span>Location Permission</span>
+                                <div class="switch">
+                                    <label><input type="checkbox" checked><span class="lever"></span></label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </aside>
-        <!-- END MENU SIDEBAR-->
-		<!-- PAGE CONTAINER-->
-        <div class="page-container">
-            <!-- HEADER DESKTOP-->
-            <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
-                            <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
-                                <button class="au-btn--submit" type="submit">
-                                    <i class="zmdi zmdi-search"></i>
-                                </button>
-                            </form>
-                            <div class="header-button">
-                                <div class="noti-wrap">
-                                    <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-comment-more"></i>
-                                        <span class="quantity">1</span>
-                                        <div class="mess-dropdown js-dropdown">
-                                            <div class="mess__title">
-                                                <p>You have 2 news message</p>
-                                            </div>
-                                            <div class="mess__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="<?php echo base_url();?>assets/admin/images/icon/avatar-06.jpg" alt="Michelle Moreno" />
-                                                </div>
-                                                <div class="content">
-                                                    <h6>Michelle Moreno</h6>
-                                                    <p>Have sent a photo</p>
-                                                    <span class="time">3 min ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="mess__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="<?php echo base_url();?>assets/admin/images/icon/avatar-04.jpg" alt="Diane Myers" />
-                                                </div>
-                                                <div class="content">
-                                                    <h6>Diane Myers</h6>
-                                                    <p>You are now connected on message</p>
-                                                    <span class="time">Yesterday</span>
-                                                </div>
-                                            </div>
-                                            <div class="mess__footer">
-                                                <a href="#">View all messages</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-email"></i>
-                                        <span class="quantity">1</span>
-                                        <div class="email-dropdown js-dropdown">
-                                            <div class="email__title">
-                                                <p>You have 3 New Emails</p>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="<?php echo base_url();?>assets/admin/images/icon/avatar-06.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, 3 min ago</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="<?php echo base_url();?>assets/admin/images/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, Yesterday</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="<?php echo base_url();?>assets/admin/images/icon/avatar-04.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Meeting about new dashboard...</p>
-                                                    <span>Cynthia Harvey, April 12,,2018</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__footer">
-                                                <a href="#">See all emails</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-notifications"></i>
-                                        <span class="quantity">3</span>
-                                        <div class="notifi-dropdown js-dropdown">
-                                            <div class="notifi__title">
-                                                <p>You have 3 Notifications</p>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c1 img-cir img-40">
-                                                    <i class="zmdi zmdi-email-open"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>You got a email notification</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c2 img-cir img-40">
-                                                    <i class="zmdi zmdi-account-box"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Your account has been blocked</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c3 img-cir img-40">
-                                                    <i class="zmdi zmdi-file-text"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>You got a new file</p>
-                                                    <span class="date">April 12, 2018 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__footer">
-                                                <a href="#">All notifications</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="account-wrap">
-                                    <div class="account-item clearfix js-item-menu">
-                                        <div class="image">
-                                            <img src="<?php echo base_url();?>assets/admin/images/icon/avatar-01.jpg" alt="John Doe" />
-                                        </div>
-                                        <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <a href="#">
-                                                        <img src="<?php echo base_url();?>assets/admin/images/icon/avatar-01.jpg" alt="John Doe" />
-                                                    </a>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">john doe</a>
-                                                    </h5>
-                                                    <span class="email">johndoe@example.com</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Account</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Setting</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-            <!-- END HEADER DESKTOP-->
+        <!-- #END# Right Sidebar -->
+    </section>

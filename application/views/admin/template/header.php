@@ -1,46 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <!-- Required meta tags-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="<?php echo base_url();?>assets/admin/image/x-icon">
 
-    <!-- Title Page-->
-    <title>Alphanus</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
-    <!-- Fontfaces CSS-->
-    <link href="<?php echo base_url();?>assets/admin/css/font-face.css" rel="stylesheet" media="all">
-    <link href="<?php echo base_url();?>assets/admin/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="<?php echo base_url();?>assets/admin/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="<?php echo base_url();?>assets/admin/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <!-- Bootstrap Core Css -->
+    <link href="<?php echo base_url();?>assets/admin/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Bootstrap CSS-->
-    <link href="<?php echo base_url();?>assets/admin/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <!-- Waves Effect Css -->
+    <link href="<?php echo base_url();?>assets/admin/plugins/node-waves/waves.css" rel="stylesheet" />
 
-    <!-- Vendor CSS-->
-<<<<<<< .mine
-    <!-- <link href="<?php //echo base_url();?>assets/admin/vendor/animsition/animsition.min.css" rel="stylesheet" media="all"> -->
-||||||| .r30
-    <link href="<?php echo base_url();?>assets/admin/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-=======
->>>>>>> .r33
-    <link href="<?php echo base_url();?>assets/admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="<?php echo base_url();?>assets/admin/vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="<?php echo base_url();?>assets/admin/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="<?php echo base_url();?>assets/admin/vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="<?php echo base_url();?>assets/admin/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="<?php echo base_url();?>assets/admin/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <!-- Animation Css -->
+    <link href="<?php echo base_url();?>assets/admin/plugins/animate-css/animate.css" rel="stylesheet" />
 
-    <!-- Main CSS-->
-    <link href="<?php echo base_url();?>assets/admin/css/theme.css" rel="stylesheet" media="all">
-	<link href="<?php echo base_url();?>assets/admin/style.css" rel="stylesheet" media="all">
+    <!-- Morris Chart Css-->
+    <link href="<?php echo base_url();?>assets/admin/plugins/morrisjs/morris.css" rel="stylesheet" />
 
-	<?php $this->load->view('admin/template/style')?>
+    <!-- Custom Css -->
+    <link href="<?php echo base_url();?>assets/admin/css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="<?php echo base_url();?>assets/admin/css/themes/all-themes.css" rel="stylesheet" />
 </head>
 
-<body class="animsition">
-	<div class="page-wrapper">
+<body class="theme-red">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Please wait...</p>
+        </div>
+    </div>
