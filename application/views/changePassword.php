@@ -1,31 +1,26 @@
-<?php $this->load->view('templateLg/header')?>
+			<?php $this->load->view('templateLg/header')?>
+                <form id="sign_up" method="POST">
+                    <div class="msg">Change Password</div>
 
-					<span class="login100-form-title">
-						Ganti Password
-					</span>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" class="form-control" name="confirm" minlength="6" placeholder="Confirm Password" required>
+                        </div>
+                    </div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-					</div>
-
-                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Komfirmasi Password">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Submit
-						</button>
-					</div>
+                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">Change Password</button>
 
 
-
-        <?php $this->load->view('templateLg/footer')?>
+				</form>
+                <?php $this->load->view('templateLg/footer')?>

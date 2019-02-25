@@ -6,14 +6,14 @@
 
           <div class="one-forth ftco-animate align-self-md-center" data-scrollax=" properties: { translateY: '70%' }">
           	<h1 class="mb-4"> Website Untuk
-              <strong class="typewrite" data-period="4000" data-type='[ "Belajar", "Berkarya", "Berbagi" ]'>
+              <strong class="typewrite" data-period="4000" data-type='[ "Belajar", "Berbagi", "Berkarya" ]'>
                 <span class="wrap"></span>
               </strong>
             </h1>
             <p class="mb-md-5 mb-sm-3" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
 							Website yang buat untuk kebutuhan pembelajaran yang dimana ada interactive coding, dan juga banyak pembelajaran yang bisa di pelajari dengan lebih mudah. dan jika anda ingin membagikan ilmu anda di website ini juga bisa saling membantu satu sama lainnya.
 						</p>
-            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="#" class="btn btn-primary px-4 py-3">Daftar Sekarang</a></p>
+            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="<?php echo base_url().'register';?>" class="btn btn-primary px-4 py-3">Daftar Sekarang</a></p>
           </div>
 
           <div class="one-half align-self-md-end align-self-sm-center">

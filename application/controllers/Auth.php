@@ -14,50 +14,94 @@ class Auth extends CI_Controller
 		}
 		$this->load->view('login');
 	}
+
 	public function login()
 	{
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 
-		if(empty($username) or empty($password))
+		$this->load->model('m_user','user');
+
+		$result = $this->user->fc_login($username,$password);
+		//echo $result->out_code;
+		//print_r($result);exit;
+
+		if($result->out_code <> 1)
 		{
-			$this->session->set_flashdata('error_message','Username Or Password Must Be Filled !!');
+			$this->session->set_flashdata('error_message',$result->out_msg);
 			redirect(base_url('auth/index'));
 		}
 
-		$sql = "select * from user where user_name= ? OR user_email = ?";
-		$query= $this->db->query($sql,array($username,$username));
-		$row=$query->row_array();
-
-		$md5pass = md5(trim($password));
-		if (strcmp($md5pass, $row['user_password']) != 0) {
-			$this->session->set_flashdata('error_message','Username Or Password Is Wrong!!');
-			redirect(base_url('auth/index'));
-		}
+		$dataUser = $this->user->get_user($username);
+		//echo $dataUser->user_name;
+		//print_r($dataUser);exit;
 
 		//set user session
 		$userdata=array(
-			'user_id' => $row['user_id'],
-			'user_name' => $row['user_name'],
-			'user_email' => $row['user_email'],
+			'user_id' => $dataUser->user_id,
+			'user_name' => $dataUser->user_name,
+			'user_email' => $dataUser->user_email,
+			'user_fullname' => $dataUser->user_fullname,
+			'user_picture' => $dataUser->user_picture,
+			'user_background' => $dataUser->user_background,
 			'logged_in' => true
 			);
 		$this->session->set_userdata($userdata);
 		//arahkan ke panel
 		redirect(base_url('dashboard'));
 	}
+
+	public function loginHome()
+	{
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+
+		$this->load->model('m_user','user');
+
+		$result = $this->user->fc_login($username,$password);
+		//echo $result->out_code;
+		//print_r($result);exit;
+
+		if($result->out_code <> 1)
+		{
+			$this->session->set_flashdata('error_message',$result->out_msg);
+			redirect(base_url());
+		}
+
+		$dataUser = $this->user->get_user($username);
+		//echo $dataUser->user_name;
+		//print_r($dataUser);exit;
+
+		//set user session
+		$userdata=array(
+			'user_id' => $dataUser->user_id,
+			'user_name' => $dataUser->user_name,
+			'user_email' => $dataUser->user_email,
+			'user_fullname' => $dataUser->user_fullname,
+			'user_picture' => $dataUser->user_picture,
+			'user_background' => $dataUser->user_background,
+			'logged_in' => true
+			);
+		$this->session->set_userdata($userdata);
+		//arahkan ke panel
+		redirect(base_url('dashboard'));
+	}
+
 	public function logout()
 	{
 		$userdata=array(
 			'user_id' => '',
 			'user_name' => '',
 			'user_email' => '',
-			'logged_in' => ''
+			'user_fullname' => '',
+			'user_picture' => '',
+			'user_background' => '',
+			'logged_in' => false
 			);
 
 		$this->session->unset_userdata($userdata);
 		$this->session->sess_destroy();
 
-		redirect(base_url('auth/index'));
+		redirect(base_url('home'));
 	}
 }

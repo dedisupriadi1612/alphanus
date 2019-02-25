@@ -1,16 +1,23 @@
-<!--===============================================================================================-->
-	<!-- <link rel="icon" type="image/png" href="<?php echo base_url().'assets/';?>lg/images/icons/favicon.ico"/> -->
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/';?>lg/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/';?>lg/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/';?>lg/vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/';?>lg/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/';?>lg/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/';?>lg/css/util.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/';?>lg/css/main.css">
-<!--===============================================================================================-->
+<!-- Favicon-->
+    <link rel="icon" href="<?php echo base_url().'assets/';?>adm/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="<?php echo base_url().'assets/';?>adm/css/cyrillic-ext.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url().'assets/';?>adm/css/Icons.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="<?php echo base_url().'assets/';?>adm/plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="<?php echo base_url().'assets/';?>adm/plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="<?php echo base_url().'assets/';?>adm/plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="<?php echo base_url().'assets/';?>adm/css/style.css" rel="stylesheet">
+
+    <!-- Sweetalert Css -->
+    <link href="<?php echo base_url().'assets/';?>adm/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+
+

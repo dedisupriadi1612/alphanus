@@ -1,35 +1,23 @@
-<?php $this->load->view('templateLg/header')?>
-					<span class="login100-form-title">
-						Lupa Password
-					</span>
+			<?php $this->load->view('templateLg/header')?>
+				<form id="forgot_password" method="POST">
+                    <div class="msg">
+                        Enter your email address that you used to register. We'll send you an email with your username and a
+                        link to reset your password.
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">email</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required autofocus>
+                        </div>
+                    </div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email">
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-					</div>
+                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">RESET MY PASSWORD</button>
 
+                    <div class="row m-t-20 m-b--5 align-center">
+                        <a href="<?php echo base_url().'auth';?>">Sign In!</a>
+                    </div>
+                </form>
 
-
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Submit
-						</button>
-					</div>
-
-					<div class="text-center p-t-12">
-						<a class="txt2" href="<?php echo base_url().'auth';?>">
-							Sudah Punya Akun
-						</a>
-					</div>
-
-					<div class="text-center p-t-136">
-						<a class="txt2" href="<?php echo base_url().'register';?>">
-							Buat Akun Kamu
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
-
-        <?php $this->load->view('templateLg/footer')?>
+        	<?php $this->load->view('templateLg/footer')?>

@@ -12,7 +12,17 @@
 				<ul class="navbar-nav ml-auto">
 				  <li class="nav-item active"><a href="<?php echo base_url().'Home' ?>" class="nav-link">Home</a></li>
 				  <li class="nav-item"><a href="<?php echo base_url().'About' ?>" class="nav-link">About</a></li>
-				  <li class="nav-item"><a href="#myModal" class="nav-link" data-toggle="modal">Login</a></li>
+					<?php
+							if (!isLogin()):
+					?>
+				  <li class="nav-item"><a class="nav-link" data-target="#myModal" data-toggle="modal">Login</a></li>
+					<?php
+						else :
+					?>
+					<li class="nav-item"><a href="<?php echo base_url().'dashboard' ?>" class="nav-link">Dashboard</a></li>
+					<?php
+						endif;
+					?>
 				</ul>
 			  </div>
 			</div>
@@ -29,11 +39,16 @@
 							<img src="<?php echo base_url();?>assets/images/avatar.png" alt="Avatar">
 						</div>
 						<h4 class="modal-title">Member Login</h4>
-
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
-						<form name="login">
+						<?php if ($this->session->flashdata('error_message') != "") :?>
+								<div class="alert alert-danger alert-dismissible" role="alert">
+										<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										<?php echo $this->session->flashdata('error_message')?>
+								</div>
+						<?php endif?>
+						<form name="login" action="<?php echo base_url('auth/loginHome');?>"  method="POST" >
 							<div class="form-group">
 								<input type="text" class="form-control" name="username" placeholder="Username" required="required">
 							</div>
@@ -41,11 +56,11 @@
 								<input type="password" class="form-control" name="password" placeholder="Password" required="required">
 							</div>
 							<div class="form-group">
-								<button type="submit" onclick="check(this.form)" value="Login" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
+								<button type="submit"  value="Login" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
 							</div>
 
 							<div class="form-group">
-								<a style="font-size: 15px;" href="#">Forgot Password?</a>
+								<a style="font-size: 15px;" href="<?php echo base_url().'forgetPassword';?>">Forgot Password?</a>
 							</div>
 
 						</form>
@@ -59,65 +74,5 @@
 		</div>
 		</div>
 
-		<!-- Modal HTML Register -->
-		<div id="myRegister" class="modal fade">
-			<div class="modal-dialog modal-login">
-				<div class="modal-content">
-					<div class="modal-header">
-						<div class="avatar">
-							<img src="<?php echo base_url();?>assets/<?php echo base_url();?>assets/admin/images/avatar.png" alt="Avatar">
-						</div>
-						<h4 class="modal-title">Member Register</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">
-						<form name="login">
-							<div class="form-group">
-								<input type="text" class="form-control" name="username" placeholder="Username" required="required">
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" name="username" placeholder="Email" required="required">
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control" name="password" placeholder="Password" required="required">
-							</div>
-							<div class="form-group">
-								<button type="submit" onclick="check(this.form)" value="Sign Up" class="btn btn-primary btn-lg btn-block login-btn">Sign Up</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
 
-		<!-- Modal HTML Register -->
-		<div id="myRegister" class="modal fade">
-			<div class="modal-dialog modal-login">
-				<div class="modal-content">
-					<div class="modal-header">
-						<div class="avatar">
-							<img src="<?php echo base_url();?>assets/images/avatar.png" alt="Avatar">
-						</div>
-						<h4 class="modal-title">Member Register</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="modal-body">
-						<form name="login">
-							<div class="form-group">
-								<input type="text" class="form-control" name="username" placeholder="Username" required="required">
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" name="username" placeholder="Email" required="required">
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control" name="password" placeholder="Password" required="required">
-							</div>
-								<button type="submit" onclick="check(this.form)" value="Sign Up" class="btn btn-primary btn-lg btn-block login-btn">Sign Up</button>
-							<div class="form-group">
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
+

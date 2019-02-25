@@ -1,0 +1,72 @@
+.theme-alpha .navbar {
+	background-color: #597cc7;
+}
+
+.theme-alpha .navbar-brand {
+	color: #fff;
+}
+
+.theme-alpha .navbar-brand:hover {
+	color: #fff;
+}
+
+.theme-alpha .navbar-brand:active {
+	color: #fff;
+}
+
+.theme-alpha .navbar-brand:focus {
+	color: #fff;
+}
+
+.theme-alpha .nav>li>a {
+	color: #fff;
+}
+
+.theme-alpha .nav>li>a:hover {
+	background-color: transparent;
+}
+
+.theme-alpha .nav>li>a:focus {
+	background-color: transparent;
+}
+
+.theme-alpha .nav .open>a {
+	background-color: transparent;
+}
+
+.theme-alpha .nav .open>a:hover {
+	background-color: transparent;
+}
+
+.theme-alpha .nav .open>a:focus {
+	background-color: transparent;
+}
+
+.theme-alpha .bars {
+	color: #fff;
+}
+
+.theme-alpha .sidebar .menu .list li.active {
+	background-color: transparent;
+}
+
+.theme-alpha .sidebar .menu .list li.active> :first-child i,
+.theme-alpha .sidebar .menu .list li.active> :first-child span {
+	color: #597cc7;
+}
+
+.theme-alpha .sidebar .menu .list .toggled {
+	background-color: transparent;
+}
+
+.theme-alpha .sidebar .menu .list .ml-menu {
+	background-color: transparent;
+}
+
+.theme-alpha .sidebar .legal {
+	background-color: #fff;
+}
+
+.theme-alpha .sidebar .legal .copyright a {
+	color: #597cc7 !important;
+}

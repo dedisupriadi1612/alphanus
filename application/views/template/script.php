@@ -15,17 +15,14 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?php echo base_url();?>assets/js/google-map.js"></script>
   <script src="<?php echo base_url();?>assets/js/main.js"></script>
-  <script language="javascript">
-		function check(form)/*function to check userid & password*/
-		{
-		 /*the following code checkes whether the entered userid and password are matching*/
-		 if(form.username.value == "admin" && form.password.value == "admin")
-		  {
-			window.open('<?php echo base_url().'Dashboard' ?>')/*opens the target page while Id & password matches*/
-		  }
-		 else
-		 {
-		   alert("Error Password or Username")/*displays error message*/
-		  }
-		}
-	</script> 
+  <script>
+			$( document ).ready(function() {
+					//alert("tes");
+					var output = "<?php echo $this->session->flashdata('error_message') ?>";
+
+					if (output != ""){
+           // alert(output);
+						 $('#myModal').modal('show');
+					}
+			});
+		</script>
