@@ -1,5 +1,21 @@
 ﻿/* Navbar ====================================== */
+<?php
 
+    header("Content-type: text/css; charset: UTF-8");
+    ob_start();
+    include('index.php');
+    ob_end_clean();
+    $CI =& get_instance();
+    $CI->load->library('session'); //if it's not autoloaded in your CI setup
+    //echo $CI->session->userdata('name');exit;
+    $background = $CI->session->userdata('user_background');
+
+    if (empty($background)){
+        $user_background = base_url().'images/background/default.png';
+    }else{
+          $user_background =   base_url().'images/background/'.$background;
+    }
+?>
 @import url(materialize.css);
 .navbar {
   font-family: "Roboto", sans-serif;
@@ -7563,7 +7579,9 @@ fieldset[disabled] .form-control {
     white-space: nowrap;
     position: relative;
     border-bottom: 1px solid #e9e9e9;
-     background: url("../images/user-img-background.jpg") no-repeat no-repeat;
+     background: url("<?php
+                        echo $user_background;
+                       ?>") no-repeat no-repeat;
     height: 135px; }
     .sidebar .user-info .image {
       margin-right: 12px;
@@ -8131,11 +8149,12 @@ fieldset[disabled] .form-control {
   .dataTables_wrapper .dt-buttons {
     float: left;
     margin-top: 10px;
-  }
+   }
     .dataTables_wrapper .dt-buttons a.dt-button {
-      background-color: #607D8B;
+      background-color: #597cc7;
       color: #fff;
       padding: 7px 12px;
+      //padding-top: 50px;
       margin-right: 5px;
       text-decoration: none;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);

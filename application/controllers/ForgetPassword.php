@@ -20,6 +20,9 @@ class ForgetPassword extends CI_Controller {
 	 */
 	public function index()
 	{
+		if ($this->session->userdata('logged_in')) {
+			redirect(base_url('dashboard'));
+		}
 		$this->load->view('forgetPassword');
 	}
 }

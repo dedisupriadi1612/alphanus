@@ -1,5 +1,5 @@
 			<?php $this->load->view('templateLg/header')?>
-                <form id="sign_up" method="POST">
+                <form id="sign_up" action="<?php echo base_url('register/send_email');?>" method="POST">
                     <div class="msg">Register a new membership</div>
                     <div class="input-group">
                         <span class="input-group-addon">
