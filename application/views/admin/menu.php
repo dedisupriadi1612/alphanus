@@ -140,7 +140,8 @@
                     }
                 ],
                 "pageLength": 5,
-                "bDestroy": true
+                "bDestroy": true,
+                "order": [[ 0, "desc" ]]
                 });
         }
 
