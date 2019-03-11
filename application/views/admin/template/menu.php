@@ -36,24 +36,38 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li class="<?php echo checkSegmentMenu('dashboard'); ?>">
-                        <a href="<?php echo base_url('dashboard') ?>">
-                            <i class="material-icons">dashboard</i>
-                            <span>Dashboard</span>
+
+                    <?php
+                         $data = getMenuAdmin();
+                         for ($i=0; $i <count($data) ; $i++) :
+                    ?>
+                    <li class="<?php echo checkSegmentMenu($data[$i]->menu_url,$data[$i]->menu_id); ?>">
+                        <a href="<?php echo getURL($data[$i]->menu_url) ?>" class="<?php echo checkTogleMenu($data[$i]->menu_id) ?>">
+                            <i class="material-icons"><?php echo $data[$i]->menu_icon?></i>
+                            <span><?php echo $data[$i]->menu_tittle?></span>
                         </a>
+
+                            <?php echo checkOpenUL($data[$i]->menu_id) ?>
+                            <?php
+                                $details = getMenuDetailAdmin($data[$i]->menu_id);
+                                for ($j=0; $j <count($details) ; $j++) :
+                            ?>
+                            <li class="<?php echo checkSegmentMenu($details[$j]->menu_url,$details[$j]->menu_id); ?>">
+                                <a href="<?php echo getURL($details[$j]->menu_url) ?>">
+                                    <i class="material-icons"></i>
+                                    <span><?php echo $details[$j]->menu_tittle?></span>
+                                </a>
+                            </li>
+
+                            <?php
+                                endfor;
+                            ?>
+                            <?php echo checkCloseUL($data[$i]->menu_id) ?>
                     </li>
-                    <li class="<?php echo checkSegmentMenu('home'); ?>">
-                        <a href="<?php echo base_url('') ?>">
-                            <i class="material-icons">home</i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li class="<?php echo checkSegmentMenu('menu'); ?>">
-                        <a href="<?php echo base_url('menu') ?>">
-                            <i class="material-icons">menu</i>
-                            <span>Menu</span>
-                        </a>
-                    </li>
+                    <?php
+                         endfor;
+                    ?>
+
                 </ul>
             </div>
             <!-- #Menu -->
@@ -62,9 +76,9 @@
                 <div class="copyright">
                     &copy; 2019 <a href="javascript:void(0);">neeDuck</a>.
                 </div>
-                <div class="version">
+                <!-- <div class="version">
                     <b>Version: </b> 1.0.5
-                </div>
+                </div> -->
             </div>
             <!-- #Footer -->
         </aside>

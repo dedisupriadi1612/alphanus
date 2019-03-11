@@ -63,3 +63,6 @@
 
     <!-- SweetAlert Plugin Js -->
     <script src="<?php echo base_url().'assets/';?>adm/plugins/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Select Plugin Js -->
+    <script src="<?php echo base_url().'assets/';?>adm/plugins/bootstrap-select/js/bootstrap-select.js"></script>

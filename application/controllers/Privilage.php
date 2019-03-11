@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Icon extends CI_Controller {
+class Privilage extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -29,26 +29,31 @@ class Icon extends CI_Controller {
 		//$data = array(
 			//'menus' => $result
 		//);
-		$this->load->view('admin/icon');
+		$this->load->view('admin/privilage');
 
 		//$this->load->view('admin/menu',$data);
 	}
 
 
 
-	public function getIcon(){
+	public function getData(){
 		check_login();
 
-		//echo $menu_parent;exit;
+		#echo "0";exit;
 
-		$this->load->model('m_icon','icon');
+		$this->load->model('m_privilage','privilage');
 
 
-		$result = $this->icon->getIcon();
+
+		$result = $this->privilage->getData();
+
+		#echo "0";exit;
 
 		$data = array(
 			'data' => $result
 		);
+
+
 
 		header('Content-type: text/plain');
 		// set json non IE
@@ -58,14 +63,14 @@ class Icon extends CI_Controller {
 		echo json_encode($data); exit;
 	}
 
-	public function getIconDetails(){
+	public function getDetails(){
 		check_login();
 
-		$icon_id=$_POST["icon_id"];
+		$privilage_id=$_POST["privilage_id"];
 
-		$this->load->model('m_icon','icon');
+		$this->load->model('m_privilage','privilage');
 
-		$result = $this->icon->getIconById($icon_id);
+		$result = $this->privilage->getDetails($privilage_id);
 
 
 
@@ -82,38 +87,42 @@ class Icon extends CI_Controller {
 		check_login();
 
 		$action = 3; #Flag Delete
-		$icon_id=$_GET["icon_id"];
-		$icon_name = NULL;
-		$icon_description = NULL;
+		$privilage_id=$_GET["privilage_id"];
+		$privilage_type_id = NULL;
+		$menu_id = NULL;
+		$module_id = NULL;
 
 		$data=array(	"action" => $action,
-							"icon_id"=>$icon_id,
-							"icon_name"=>$icon_name,
-							"icon_description"=>$icon_description);
+							"privilage_id"=>$privilage_id,
+							"privilage_type_id"=>$privilage_type_id,
+							"menu_id"=>$menu_id,
+							"module_id"=>$module_id);
 
-		$this->load->model('m_icon','icon');
+		$this->load->model('m_privilage','privilage');
 
-		$result = $this->icon->crudIcon($data);
+		$result = $this->privilage->crud($data);
 
-		redirect(base_url('icon'));
+		redirect(base_url('privilage'));
 	}
 
 	public function createUpdate(){
 		check_login();
 
 		$action = $_POST["action"];
-		$icon_id=$_POST["icon_id"];
-		$icon_name = $_POST["icon_name"];
-		$icon_description = $_POST["icon_description"];
+		$privilage_id= $_POST["privilage_id"];
+		$privilage_type_id = $_POST["privilage_type_id"];
+		$menu_id = $_POST["menu_id"];
+		$module_id = $_POST["module_id"];
 
 		$data=array(	"action" => $action,
-							"icon_id"=>$icon_id,
-							"icon_name"=>$icon_name,
-							"icon_description"=>$icon_description);
+							"privilage_id"=>$privilage_id,
+							"privilage_type_id"=>$privilage_type_id,
+							"menu_id"=>$menu_id,
+							"module_id"=>$module_id);
 
-		$this->load->model('m_icon','icon');
+		$this->load->model('m_privilage','privilage');
 
-		$result = $this->icon->crudIcon($data);
+		$result = $this->privilage->crud($data);
 
 		header('Content-type: text/plain');
 		// set json non IE

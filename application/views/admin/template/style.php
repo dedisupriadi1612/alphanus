@@ -32,3 +32,6 @@
 
     <!-- Sweetalert Css -->
     <link href="<?php echo base_url().'assets/';?>adm/plugins/sweetalert/sweetalert.css" rel="stylesheet" />
+
+    <!-- Bootstrap Select Css -->
+    <link href="<?php echo base_url().'assets/';?>adm/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />

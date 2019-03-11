@@ -3,9 +3,6 @@
 
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <h2>Menu</h2>
-            </div>
 
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                 <div class="card">
@@ -124,7 +121,7 @@
                     { "data": "menu_id",
                         "render": function(d, t, r) {
                             var menu_id = r.menu_id;
-                            var returnString = "<button type='button' class='btn btn-sm btn-warning waves-effect' onclick='modal_form_menu_show("+menu_id+")'><i class='material-icons'>mode_edit</i></button>";
+                            var returnString = "<button type='button' class='btn btn-sm btn-warning waves-effect' onclick='modal_form_menu_show("+menu_id+","+parent_id+")'><i class='material-icons'>mode_edit</i></button>";
                             returnString += "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-sm btn-danger  waves-effect' onclick='deleteConfirmation("+menu_id+")'><i class='material-icons'>delete</i></button>"
                             return returnString;
                         }
@@ -138,7 +135,7 @@
                         text: 'Tambah Menu',
                         action: function ( e, dt, node, config ) {
                             //alert( 'Button activated' );
-                            modal_form_menu_show(0);
+                            modal_form_menu_show(0,parent_id);
                         }
                     }
                 ],
@@ -148,7 +145,7 @@
         }
 
         function deleteConfirmation(id) {
-                var url = "<?php echo base_url('menu/delete?id=');?>"+id;
+                var url = "<?php echo base_url('menu/delete?menu_id=');?>"+id;
                 swal({
                 title: "Delete Confirmation",
                 text: "Are You sure to delete selected record?",

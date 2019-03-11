@@ -38,11 +38,20 @@ class M_user extends CI_Model
 		return $item;
 	}
 
-	public function get_user($username)
+	public function getUserByUname($username)
 	{
-        $query = $this->db->query("CALL get_user('$username') ");
+        $query = $this->db->query("CALL getUserByUname('$username') ");
 
 		$items = $query->row();
+
+		return $items;
+	}
+
+	public function getUser()
+	{
+        $query = $this->db->query("CALL getUser() ");
+
+		$items = $query->result();
 
 		return $items;
 	}

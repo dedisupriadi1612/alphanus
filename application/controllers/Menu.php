@@ -22,16 +22,7 @@ class Menu extends CI_Controller {
 	{
 		check_login();
 
-		//$this->load->model('m_menu','menu');
-
-		//$result = $this->menu->getMenu();
-
-		//$data = array(
-			//'menus' => $result
-		//);
 		$this->load->view('admin/menu');
-
-		//$this->load->view('admin/menu',$data);
 	}
 
 	public function getMenuByParent(){
@@ -69,14 +60,8 @@ class Menu extends CI_Controller {
             								"parent" => "#",
 											"text" => "List Menu",
 											"state"=> array("opened" => true )
-                        ));
+						));
 
-		//print_r($result);exit;
-		//$data = array(
-			//'data' => $result
-		//);
-
-		// set text compatible IE7, IE8
 		header('Content-type: text/plain');
 		// set json non IE
 		header('Content-type: application/json');
@@ -103,6 +88,79 @@ class Menu extends CI_Controller {
 
 
 		echo json_encode($result); exit;
+	}
+
+
+	public function delete(){
+		check_login();
+
+		$action = 3; #Flag Delete
+		$menu_id=$_GET["menu_id"];
+		$menu_tittle = NULL;
+		$menu_url = NULL;
+		$menu_icon = NULL;
+		$menu_description = NULL;
+		$menu_parent = 0 ;
+		$menu_order = 0;
+
+		$data=array(	"action" => $action,
+							"menu_id"=>$menu_id,
+							"menu_tittle"=>$menu_tittle,
+							"menu_url"=>$menu_url,
+							"menu_icon"=>$menu_icon,
+							"menu_description"=>$menu_description,
+							"menu_parent"=>$menu_parent,
+							"menu_order"=>$menu_order);
+
+		$this->load->model('m_menu','menu');
+
+		$result = $this->menu->crudMenu($data);
+
+		#header('Content-type: text/plain');
+		// set json non IE
+		#header('Content-type: application/json');
+
+		#echo json_encode($result); exit;
+		#$this->load->view('admin/menu',$result);
+		redirect(base_url('menu'));
+	}
+
+	public function createUpdate(){
+		check_login();
+
+		$action = $_POST["action"];
+		$menu_id=$_POST["menu_id"];
+		$menu_tittle = $_POST["menu_tittle"];
+		$menu_url = $_POST["menu_url"];
+		$menu_icon = $_POST["menu_icon"];
+		$menu_description = $_POST["menu_description"];
+		$menu_parent = $_POST["menu_parent"];
+		$menu_order = $_POST["menu_order"];
+
+		$data=array(	"action" => $action,
+							"menu_id"=>$menu_id,
+							"menu_tittle"=>$menu_tittle,
+							"menu_url"=>$menu_url,
+							"menu_icon"=>$menu_icon,
+							"menu_description"=>$menu_description,
+							"menu_parent"=>$menu_parent,
+							"menu_order"=>$menu_order);
+
+		$this->load->model('m_menu','menu');
+
+		$result = $this->menu->crudMenu($data);
+
+		#if ($result->code == 1){
+		#	redirect(base_url('menu'));
+		#}
+
+		header('Content-type: text/plain');
+		// set json non IE
+		header('Content-type: application/json');
+
+		echo json_encode($result); exit;
+		#$this->session->set_flashdata('error_message',$result->out_msg);
+		#redirect(base_url('menu'));
 	}
 
 

@@ -32,7 +32,7 @@ class Auth extends CI_Controller
 			redirect(base_url('auth/index'));
 		}
 
-		$dataUser = $this->user->get_user($username);
+		$dataUser = $this->user->getUserByUname($username);
 		//echo $dataUser->user_name;
 		//print_r($dataUser);exit;
 
@@ -68,7 +68,7 @@ class Auth extends CI_Controller
 			redirect(base_url());
 		}
 
-		$dataUser = $this->user->get_user($username);
+		$dataUser = $this->user->getUserByUname($username);
 		//echo $dataUser->user_name;
 		//print_r($dataUser);exit;
 

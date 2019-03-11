@@ -24,6 +24,36 @@ class M_icon extends CI_Model
 		return $items;
 	}
 
+	public function getIconById($iconID)
+	{
+        $query = $this->db->query("CALL getIconByID($iconID)");
+
+		$items = $query->row();
+
+		return $items;
+	}
+
+	public function crudIcon($data)
+	{
+		$SQL = "CALL  p_crud_icon(".$data['action'].",
+											".$data['icon_id'].",
+											".$this->db->escape($data['icon_name']).",
+											".$this->db->escape($data['icon_description']).",
+											".$this->db->escape($this->session->userdata('user_name')).",
+											@code,
+											@msg);";
+
+
+        $this->db->trans_start();
+            $this->db->query($SQL); // not need to get output
+            $query = $this->db->query("SELECT @code as code,  @msg as msg");
+        $this->db->trans_complete();
+
+        $items = $query->row();
+
+        return $items;
+    }
+
 
 
 
