@@ -49,7 +49,7 @@ class Register extends CI_Controller {
         $this->email->from('dedi.alphanus@gmail.com', 'dedi tes');
 
         // Email penerima
-        $this->email->to('dedisupriadi1612@gmail.com@gmail.com'); // Ganti dengan email tujuan kamu
+        $this->email->to('dedisupriadi1612@gmail.com'); // Ganti dengan email tujuan kamu
 
         // Lampiran email, isi dengan url/path file
         $this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
