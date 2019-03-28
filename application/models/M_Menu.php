@@ -106,7 +106,9 @@ class M_menu extends CI_Model
 
 	public function getParentByPrivilage($module_id)
 	{
-        $user_id = $this->session->userdata('user_id');
+		$user_id = $this->session->userdata('user_id');
+		if (empty($user_id))
+			$user_id = 0;
 		$query = $this->db->query("CALL getMenuParentByPrivilage($module_id,$user_id)");
 
 		$items = $query->result();

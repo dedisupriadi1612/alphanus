@@ -9,9 +9,34 @@
 			  </button>
 
 			  <div class="collapse navbar-collapse" id="ftco-nav">
+
 				<ul class="navbar-nav ml-auto">
-				  <li class="nav-item active"><a href="<?php echo base_url().'Home' ?>" class="nav-link">Home</a></li>
-				  <li class="nav-item"><a href="<?php echo base_url().'About' ?>" class="nav-link">About</a></li>
+					<?php
+								$data = getMenuPrivilage(2);
+								for ($i=0; $i <count($data) ; $i++) :
+					?>
+					<li class="<?php echo checkSegmentMenuHome($data[$i]->menu_url,$data[$i]->menu_id); ?>">
+						<a href="<?php echo getURL($data[$i]->menu_url) ?>"
+								data-toggle="<?php echo checkTogle($data[$i]->menu_id) ?>"
+								class="<?php echo checkDropdownA($data[$i]->menu_id) ?>">
+							<?php echo $data[$i]->menu_tittle?>
+						</a>
+						<?php echo checkOpenDiv($data[$i]->menu_id) ?>
+						<?php
+								$details = getMenuDetailAdmin($data[$i]->menu_id);
+								for ($j=0; $j <count($details) ; $j++) :
+						?>
+								<a class="<?php echo checkActiveDropdown($data[$i]->menu_url) ?>" href="<?php echo getURL($details[$j]->menu_url) ?>">
+									<?php echo $details[$j]->menu_tittle?>
+								</a>
+						<?php
+								endfor;
+						?>
+						<?php echo checkCloseDiv($data[$i]->menu_id) ?>
+					</li>
+					<?php
+								endfor;
+					?>
 					<?php
 							if (!isLogin()):
 					?>

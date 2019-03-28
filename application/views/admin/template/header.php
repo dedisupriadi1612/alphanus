@@ -12,7 +12,23 @@
 
     <?php $this->load->view('admin/template/style')?>
     <script src="<?php echo base_url().'assets/';?>adm/plugins/jquery/jquery.min.js"></script>
+    <link rel=stylesheet href="<?php echo base_url().'assets/';?>codemirror/lib/codemirror.css">
+    <script src="<?php echo base_url().'assets/';?>codemirror/lib/codemirror.js"></script>
 
+
+
+
+    <script src="<?php echo base_url().'assets/';?>codemirror/addon/edit/matchbrackets.js"></script>
+    <script src="<?php echo base_url().'assets/';?>codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="<?php echo base_url().'assets/';?>codemirror/mode/xml/xml.js"></script>
+    <script src="<?php echo base_url().'assets/';?>codemirror/mode/javascript/javascript.js"></script>
+    <script src="<?php echo base_url().'assets/';?>codemirror/mode/css/css.js"></script>
+    <script src="<?php echo base_url().'assets/';?>codemirror/mode/clike/clike.js"></script>
+    <script src="<?php echo base_url().'assets/';?>codemirror/mode/php/php.js"></script>
+    <script src="<?php echo base_url().'assets/';?>codemirror/mode/python/python.js"></script>
+
+
+    <link rel="stylesheet" href="<?php echo base_url().'assets/';?>codemirror/theme/monokai.css">
 
 </head>
 

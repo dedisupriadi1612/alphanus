@@ -38,7 +38,7 @@
                     <li class="header">MAIN NAVIGATION</li>
 
                     <?php
-                         $data = getMenuAdmin();
+                         $data = getMenuPrivilage(1);
                          for ($i=0; $i <count($data) ; $i++) :
                     ?>
                     <li class="<?php echo checkSegmentMenu($data[$i]->menu_url,$data[$i]->menu_id); ?>">

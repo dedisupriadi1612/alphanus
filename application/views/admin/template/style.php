@@ -35,3 +35,44 @@
 
     <!-- Bootstrap Select Css -->
     <link href="<?php echo base_url().'assets/';?>adm/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
+    <style >
+      .overlayImage {
+        position: absolute !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 100% !important;
+        width: 100% !important;
+        opacity: 0 !important;
+        transition: .5s ease !important;
+        background-color: #fff  !important;
+        background-image: url("<?php   echo base_url().'assets/images/bg_3.png'; ?>");
+        background-size:cover;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 5px;
+      }
+
+      .containerImage:hover .overlayImage {
+        opacity: 1 !important;
+      }
+
+      .text {
+        color: #828ac3 !important;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .nopadding {
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+    </style>

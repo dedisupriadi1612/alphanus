@@ -141,6 +141,7 @@
                 ],
                 "pageLength": 5,
                 "bDestroy": true,
+                "bAutoWidth": false,
                 "order": [[ 0, "desc" ]]
                 });
         }

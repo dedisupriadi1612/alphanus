@@ -11,7 +11,7 @@
                     </div>
                     <div class="body">
                         <div class="table-responsive">
-                            <table id="tableIcon" class="table table-bordered table-striped table-hover dataTable js-exportable ">
+                            <table id="tableIcon" class="table table-bordered table-striped table-hover dataTable js-exportable " >
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -91,6 +91,7 @@
                 ],
                 "pageLength": 5,
                 "bDestroy": true,
+                "bAutoWidth": false,
                 "order": [[ 0, "desc" ]]
                 });
         }

@@ -37,8 +37,8 @@ class M_PrivilageType extends CI_Model
 
 
         $this->db->trans_start();
-            $this->db->query($SQL); // not need to get output
-            $query = $this->db->query("SELECT @code as code,  @msg as msg");
+		$this->db->query($SQL); // not need to get output
+		$query = $this->db->query("SELECT @code as code,  @msg as msg");
         $this->db->trans_complete();
 
         $items = $query->row();
