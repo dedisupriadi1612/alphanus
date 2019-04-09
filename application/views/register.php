@@ -1,12 +1,28 @@
 			<?php $this->load->view('templateLg/header')?>
-                <form id="sign_up" action="<?php echo base_url('register/send_email');?>" method="POST">
+                <form id="sign_up" action="<?php echo base_url('auth/signUp');?>" method="POST">
                     <div class="msg">Register a new membership</div>
+                    <?php if(!empty($error_messages)):?>
+                    <div class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <?php echo $error_messages; ?>
+                    </div>
+                    <?php endif; ?>
+
+                    <?php if(!empty($sukses_messages)):?>
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <?php echo $sukses_messages; ?>
+                    </div>
+                    <?php endif; ?>
+
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                            <input type="hidden" class="form-control" name="action"  id="action" placeholder="action" value="1" required autofocus>
+                            <input type="hidden" class="form-control" name="user_id"  id="user_id" placeholder="user_id" value="0" required autofocus>
+                            <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Username" value="<?php echo set_value('user_name') ?>" required autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -14,7 +30,7 @@
                             <i class="material-icons">email</i>
                         </span>
                         <div class="form-line">
-                            <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+                            <input type="email" class="form-control" name="user_email" id="user_email" placeholder="Email Address" value="<?php echo set_value('user_email') ?>" required>
                         </div>
                     </div>
                     <div class="input-group">
@@ -22,7 +38,7 @@
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>
+                            <input type="password" class="form-control" name="user_password" id="user_password" minlength="6" placeholder="Password" required>
                         </div>
                     </div>
                     <div class="input-group">
@@ -30,7 +46,7 @@
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input type="password" class="form-control" name="confirm" minlength="6" placeholder="Confirm Password" required>
+                            <input type="password" class="form-control" name="password_komfir" id="password_komfir" minlength="6" placeholder="Confirm Password" required>
                         </div>
                     </div>
                     <div class="form-group">

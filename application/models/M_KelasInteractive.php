@@ -13,6 +13,9 @@ class M_KelasInteractive extends CI_Model
 
 		$items = $query->result();
 
+		$query->next_result();
+		$query->free_result();
+
 		return $items;
 	}
 
@@ -22,15 +25,22 @@ class M_KelasInteractive extends CI_Model
 
 		$items = $query->row();
 
+		$query->next_result();
+		$query->free_result();
+
 		return $items;
 	}
 
 	public function crud($data)
 	{
-		$SQL = "CALL  p_crud_Privilage_type(".$data['action'].",
-											".$data['privilage_type_id'].",
-											".$this->db->escape($data['privilage_type_name']).",
-											".$this->db->escape($data['privilage_type_description']).",
+		$SQL = "CALL  p_crud_interactive(".$data['action'].",
+											".$data['interactive_id'].",
+											".$this->db->escape($data['interactive_lang']).",
+											".$this->db->escape($data['interactive_code']).",
+											".$this->db->escape($data['interactive_mode']).",
+											".$this->db->escape($data['interactive_execute']).",
+											".$this->db->escape($data['interactive_image']).",
+											".$this->db->escape($data['interactive_desc']).",
 											".$this->db->escape($this->session->userdata('user_name')).",
 											@code,
 											@msg);";
@@ -41,7 +51,10 @@ class M_KelasInteractive extends CI_Model
             $query = $this->db->query("SELECT @code as code,  @msg as msg");
         $this->db->trans_complete();
 
-        $items = $query->row();
+		$items = $query->row();
+
+		// $query->next_result();
+		// $query->free_result();
 
         return $items;
     }

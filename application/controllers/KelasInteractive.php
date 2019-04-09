@@ -90,8 +90,26 @@ class KelasInteractive extends CI_Controller {
 		$interactive_image = NULL;
 		$interactive_desc = NULL;
 
+
+
+
+		$this->load->model('m_kelasInteractive','kelasInteractive');
+
+		$result = $this->kelasInteractive->getDetails($interactive_id);
+
+		$this->load->helper('file');
+
+		$path ="./upload/interactive/$result->interactive_image";
+
+
+		unlink($path);
+
+
+
+
 		$data=array(	"action" => $action,
 							"interactive_id"=>$interactive_id,
+							"interactive_code"=>$interactive_code,
 							"interactive_lang"=>$interactive_lang,
 							"interactive_mode"=>$interactive_mode,
 							"interactive_execute"=>$interactive_execute,
@@ -99,7 +117,7 @@ class KelasInteractive extends CI_Controller {
 							"interactive_desc"=>$interactive_desc,
 						);
 
-		$this->load->model('m_kelasInteractive','kelasInteractive');
+
 
 		$result = $this->kelasInteractive->crud($data);
 
@@ -107,19 +125,24 @@ class KelasInteractive extends CI_Controller {
 	}
 
 	public function createUpdate(){
+
 		check_login();
 
-		$action = $_POST["action"];
-		$interactive_id    = $_POST["interactive_id"];
-		$interactive_lang = $_POST["interactive_lang"];
-		$interactive_code = $_POST["interactive_code"];
-		$interactive_mode = $_POST["interactive_mode"];
-		$interactive_execute = $_POST["interactive_execute"];
-		$interactive_image = $_POST["interactive_image"];
-		$interactive_desc = $_POST["interactive_desc"];
+		//print_r($_FILES);exit;
+
+
+		$action = $_POST["action"] ;
+		$interactive_id    =$_POST["interactive_id"] ;
+		$interactive_lang =$_POST["interactive_lang"] ;
+		$interactive_code =  $_POST["interactive_code"] ;
+		$interactive_mode =  $_POST["interactive_mode"] ;
+		$interactive_execute =  $_POST["interactive_execute"] ;
+		$interactive_image =  $interactive_lang.'_'.$_FILES["interactive_image"]["name"];//$_POST["interactive_image"] ;
+		$interactive_desc =  $_POST["interactive_desc"] ;
 
 		$data=array(	"action" => $action,
 							"interactive_id"=>$interactive_id,
+							"interactive_code"=>$interactive_code,
 							"interactive_lang"=>$interactive_lang,
 							"interactive_mode"=>$interactive_mode,
 							"interactive_execute"=>$interactive_execute,
@@ -127,9 +150,50 @@ class KelasInteractive extends CI_Controller {
 							"interactive_desc"=>$interactive_desc,
 						);
 
-		$this->load->model('m_kelasInteractive','kelasInteractive');
+		try {
+			//echo ($interactive_code);
+			//print_r($data) ;
+			//exit;
+            $config['upload_path'] = './upload/interactive';
+            $config['allowed_types'] = '*';
+            $config['max_size'] = '10000000';
+            $config['overwrite'] = TRUE;
+            $file_id = date("YmdHis");
+            //print_r ($ci->input->post('filename'));exit();
+            $config['file_name'] = $interactive_image;//'doc_'.$file_id;
 
-		$result = $this->kelasInteractive->crud($data);
+            $this->load->library('upload');
+            $this->upload->initialize($config);
+
+            if (!$this->upload->do_upload("interactive_image")) {
+
+                $error = $this->upload->display_errors();
+                $result['success'] = false;
+                $result['message'] = $error;
+
+                echo json_encode($result);
+                exit;
+            }else{
+
+                //chmod
+				//$data = $this->upload->data();
+				//$file_name =   $upload_data['file_name'];
+                // Do Upload
+
+
+				$this->load->model('m_kelasInteractive','kelasInteractive');
+
+				$result = $this->kelasInteractive->crud($data);
+
+
+
+
+            }
+
+        }catch(Exception $e) {
+            $result['success'] = false;
+            $result['message'] = $e->getMessage();
+        }
 
 		header('Content-type: text/plain');
 		// set json non IE

@@ -59,7 +59,7 @@
         opacity: 1 !important;
       }
 
-      .text {
+       /* .text {
         color: #828ac3 !important;
         font-size: 20px;
         position: absolute;
@@ -69,7 +69,7 @@
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
         text-align: center;
-      }
+      } */
 
       .nopadding {
         padding: 0 !important;

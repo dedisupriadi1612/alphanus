@@ -56,6 +56,86 @@ class M_user extends CI_Model
 		return $items;
 	}
 
+	public function crud($data)
+	{
+		$SQL = "CALL  p_crud_user(
+					   ".$data['action'].",
+					   ".$data['user_id'].",
+					   ".$this->db->escape($data['user_name']).",
+					   ".$this->db->escape($data['user_password_old']).",
+					   ".$this->db->escape($data['user_password']).",
+					   ".$this->db->escape($data['password_komfir']).",
+					   ".$this->db->escape($data['user_fullname']).",
+					   ".$this->db->escape($data['user_gender']).",
+					   ".$this->db->escape($data['user_email']).",
+					   ".$this->db->escape($data['user_telp']).",
+					   ".$this->db->escape($data['user_picture']).",
+					   ".$this->db->escape($data['user_description']).",
+					   ".$this->db->escape($data['user_token']).",
+					   ".$this->db->escape($data['user_name']).",
+					   @code,
+					   @msg);";
+
+
+        $this->db->trans_start();
+            $this->db->query($SQL); // not need to get output
+            $query = $this->db->query("SELECT @code as code,  @msg as msg");
+        $this->db->trans_complete();
+
+        $items = $query->row();
+
+        return $items;
+	}
+
+	public function verifyAccount($token)
+	{
+        $this->db->select("SUBSTRING_INDEX(output,'|',1) AS out_code,
+                                SUBSTRING_INDEX(output,'|',-1) AS out_msg");
+		$this->db->from("(SELECT fc_cekVerfikasi ('$token') AS output ) z");
+		$query = $this->db->get();
+
+		//$items = $query->result();
+
+
+		$item = $query->row();
+
+		return $item;
+	}
+
+	public function createToken($data)
+	{
+		$SQL = "CALL  p_createToken(
+					   ".$this->db->escape($data['user_email']).",
+					   ".$this->db->escape($data['user_token']).",
+					   @code,
+					   @msg);";
+
+
+        $this->db->trans_start();
+            $this->db->query($SQL); // not need to get output
+            $query = $this->db->query("SELECT @code as code,  @msg as msg");
+        $this->db->trans_complete();
+
+        $items = $query->row();
+
+        return $items;
+	}
+
+	public function cekToken($token)
+	{
+        $this->db->select("SUBSTRING_INDEX(output,'|',1) AS out_code,
+                                SUBSTRING_INDEX(output,'|',-1) AS out_msg");
+		$this->db->from("(SELECT fc_cekToken ('$token') AS output ) z");
+		$query = $this->db->get();
+
+		//$items = $query->result();
+
+
+		$item = $query->row();
+
+		return $item;
+	}
+
 
 }
  ?>

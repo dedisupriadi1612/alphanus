@@ -85,14 +85,14 @@
 							</div>
 
 							<div class="form-group">
-								<a style="font-size: 15px;" href="<?php echo base_url().'forgetPassword';?>">Forgot Password?</a>
+								<a style="font-size: 15px;" href="<?php echo base_url().'auth/forgetPassword';?>">Forgot Password?</a>
 							</div>
 
 						</form>
 					</div>
 					<div class="modal-footer">
 						<!-- <a href="#">Forgot Password?</a> -->
-						<a href="<?php echo base_url().'register';?>" >Sign Up</a>
+						<a href="<?php echo base_url().'auth/register';?>" >Sign Up</a>
 					</div>
 				</div>
 			</div>

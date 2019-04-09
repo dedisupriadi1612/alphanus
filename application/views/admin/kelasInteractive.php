@@ -16,7 +16,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Code</th>
-                                        <th>Name</th>
+                                        <th>Language</th>
                                         <th>Mode</th>
                                         <th>Execute</th>
                                         <th>Image</th>
@@ -90,6 +90,7 @@
                 ],
                 "pageLength": 5,
                 "bDestroy": true,
+                "bAutoWidth": false,
                 "order": [[ 0, "desc" ]]
                 });
         }

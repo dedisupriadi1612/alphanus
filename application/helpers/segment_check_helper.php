@@ -121,6 +121,10 @@
         $menu = strtolower($menu);
         $segment = strtolower($ci->uri->segment(1));
 
+        if (empty($segment)){
+            $segment="home";
+        }
+
         $style = "nav-item ";
         if ($menu===$segment){
             $style = "nav-item active ";

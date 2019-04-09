@@ -1,18 +1,26 @@
 			<?php $this->load->view('templateLg/header')?>
 				<form id="sign_in" action="<?php echo base_url('auth/login');?>"  method="POST">
                     <div class="msg">Sign in to start your session</div>
-                    <?php if ($this->session->flashdata('error_message') != "") :?>
-                        <div class="alert alert-danger alert-dismissible" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <?php echo $this->session->flashdata('error_message')?>
-                        </div>
-                    <?php endif?>
+
+                    <?php if(!empty($error_messages)):?>
+                    <div class="alert alert-danger" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <?php echo $error_messages; ?>
+                    </div>
+                    <?php endif; ?>
+
+                    <?php if(!empty($sukses_messages)):?>
+                    <div class="alert alert-success" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <?php echo $sukses_messages; ?>
+                    </div>
+                    <?php endif; ?>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                            <input type="text" class="form-control" name="username" value="<?php echo set_value('username') ?>" placeholder="Username" required autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -30,10 +38,10 @@
                     </div>
                     <div class="row m-t-15 m-b--20">
                         <div class="col-xs-6">
-                            <a href="<?php echo base_url().'register';?>">Register Now!</a>
+                            <a href="<?php echo base_url().'auth/register';?>">Register Now!</a>
                         </div>
                         <div class="col-xs-6 align-right">
-                            <a href="<?php echo base_url().'forgetPassword';?>">Forgot Password?</a>
+                            <a href="<?php echo base_url().'auth/forgetPassword';?>">Forgot Password?</a>
                         </div>
 
                     </div>
