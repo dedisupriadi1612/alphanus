@@ -28,9 +28,10 @@ class Register extends CI_Controller {
 
 	public function send_email(){
 		ini_set("SMTP","ssl://smtp.gmail.com");
-        ini_set("smtp_port","465");
+    ini_set("smtp_port","465");
+    ini_set('sendmail_from', "contact.alphanus@gmail.com");
 
-		$config = [
+		/*$config = [
                'mailtype'  => 'html',
                'charset'   => 'utf-8',
                'protocol'  => 'smtp',
@@ -40,16 +41,27 @@ class Register extends CI_Controller {
                'smtp_port' => 465,
                'crlf'      => "rn",
                'newline'   => "rn"
-           ];
+           ];*/
+       $config = [
+               'mailtype'  => 'html',
+               'charset'   => 'utf-8',
+               'protocol'  => 'smtp',
+               'smtp_host' => 'ssl://smtp.gmail.com',
+               'smtp_user' => 'contact.alphanus@gmail.com',    // Ganti dengan email gmail kamu
+               'smtp_pass' => 'bandung30',      // Password gmail kamu
+               'smtp_port' => 465,
+               'crlf'      => "\r\n",
+               'newline'   => "\r\n"
+           ];    
 
         // Load library email dan konfigurasinya
         $this->load->library('email', $config);
 
         // Email dan nama pengirim
-        $this->email->from('dedi.alphanus@gmail.com', 'dedi tes');
+        $this->email->from('contact.alphanus@gmail.com', 'dedi tes');
 
         // Email penerima
-        $this->email->to('dedisupriadi1612@gmail.com'); // Ganti dengan email tujuan kamu
+        $this->email->to('anggi.fernandi@gmail.com'); // Ganti dengan email tujuan kamu
 
         // Lampiran email, isi dengan url/path file
         $this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
