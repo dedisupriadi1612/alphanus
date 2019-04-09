@@ -13,7 +13,7 @@
             <p class="mb-md-5 mb-sm-3" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
 							Selamat Datang di Website Alphanus! <br> Website ini dibuat untuk kalian yang ingin belajar, belajar apapun bisa dicari disini. Selain itu disini juga ada Interaktif Koding loh! yang mana bisa membantu kalian dalam belajar pemrograman menjadi lebih mudah. Bukan hanya itu, bagi kalian yang ingin berbagi ilmu, itu semua bisa dilakukan di website ini loh! Asyik bukan!? Ayo segara daftar akun untuk terus Belajar, Berkarya dan Berbagi.
 						</p>
-            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="<?php echo base_url().'register';?>" class="btn btn-primary px-4 py-3">Daftar Sekarang</a></p>
+            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="<?php echo base_url().'auth/register';?>" class="btn btn-primary px-4 py-3">Daftar Sekarang</a></p>
           </div>
 
           <div class="one-half align-self-md-end align-self-sm-center">
