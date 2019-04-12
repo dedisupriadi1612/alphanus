@@ -44,10 +44,6 @@
             loadTable();
         });
 
-
-
-
-
         function loadTable(){
 
             $('#tableData').DataTable({

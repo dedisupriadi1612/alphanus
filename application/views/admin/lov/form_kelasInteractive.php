@@ -13,6 +13,8 @@
                 <form class="form-horizontal" role="form" id="form_legal" name="form_legal" method="post" enctype="multipart/form-data" accept-charset="utf-8">
                     <input type="hidden" id="interactive_id" name="interactive_id" value="" />
                     <input type="hidden" id="action" name="action" value="" />
+                    <input type="hidden" id="flagChangeImage" name="flagChangeImage" value="" />
+                    <input type="hidden" id="tempNameImage" name="tempNameImage" value="" />
                     <div class="row clearfix">
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
                             <label for="lang">Languange</label>
@@ -73,16 +75,21 @@
                         <div id = "inputGambar" class="col-lg-8 col-md-8 col-sm-6 col-xs-5">
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="file" name="interactive_image" id="interactive_image">
+                                    <input type="file"  class="col-lg-7"name="interactive_image" id="interactive_image">
+                                    <div id="deleteGambar">
+                                        <label id="nameImage" name="nameImage" >Image</label>
+                                        <input type="checkbox" id="cbChangeImage" class="chk-col-red" /> Change
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
-                        <div id="deleteGambar" class="col-lg-8 col-md-8 col-sm-6 col-xs-5">
+                        <!-- <div id="deleteGambar" class="col-lg-8 col-md-8 col-sm-6 col-xs-5">
                             <div class="form-group">
-                                <button type='button' class='btn btn-sm btn-danger  waves-effect' onclick='deleteConfirmation()'><i class='material-icons'>delete</i></button>
+                                <button type='button' class='btn btn-sm btn-danger  waves-effect' onclick='deleteConfimation()'><i class='material-icons'>delete</i></button>
                                 <label id="nameImage">Image</label>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="row clearfix">
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
@@ -136,7 +143,7 @@
         $( "#inputGambar" ).show();
         $( "#deleteGambar" ).hide();
         if(interactive_id != 0){
-            $( "#inputGambar" ).hide();
+            // $( "#inputGambar" ).hide();
             $( "#deleteGambar" ).show();
             getDetails(interactive_id);
         }
@@ -176,6 +183,7 @@
                 $("#interactive_execute").val(data.interactive_execute);
                 $("#nameImage").text(data.interactive_image);
                 $("#interactive_desc").val(data.interactive_desc);
+                $("#tempNameImage").val(data.interactive_image);
 
                 $( "#deleteGambar" ).show();
             },
@@ -208,12 +216,20 @@
             var interactive_execute = $("#interactive_execute").val();
             var interactive_desc = $("#interactive_desc").val();
             var interactive_image = $("#interactive_image").val();
+            var flagChangeImage;
 
             action = 1;//Insert
             $("#action").val('1');
             if (interactive_id != 0){
                 $("#action").val('2');
             }
+
+            $("#flagChangeImage").val('f');
+            if ($("#cbChangeImage").is(":checked")){
+                $("#flagChangeImage").val('t');
+            }
+
+
 
             var data = new FormData(this);
 

@@ -127,6 +127,9 @@ class KelasInteractive extends CI_Controller {
 	public function createUpdate(){
 
 		check_login();
+		header('Content-type: text/plain');
+		// set json non IE
+		header('Content-type: application/json');
 
 		//print_r($_FILES);exit;
 
@@ -137,8 +140,14 @@ class KelasInteractive extends CI_Controller {
 		$interactive_code =  $_POST["interactive_code"] ;
 		$interactive_mode =  $_POST["interactive_mode"] ;
 		$interactive_execute =  $_POST["interactive_execute"] ;
-		$interactive_image =  $interactive_lang.'_'.$_FILES["interactive_image"]["name"];//$_POST["interactive_image"] ;
+		$interactive_image =  $interactive_code.'_'.$_FILES["interactive_image"]["name"];//$_POST["interactive_image"] ;
 		$interactive_desc =  $_POST["interactive_desc"] ;
+		$flagChangeImage =  $_POST["flagChangeImage"] ;
+		$tempNameImage =  $_POST["tempNameImage"] ;
+
+
+
+
 
 		$data=array(	"action" => $action,
 							"interactive_id"=>$interactive_id,
@@ -150,6 +159,44 @@ class KelasInteractive extends CI_Controller {
 							"interactive_desc"=>$interactive_desc,
 						);
 
+		if ($action ==="1"){
+			$result = $this->uploadFile($data);
+			echo json_encode($result); exit;
+		}else{
+			if ($flagChangeImage ==="t"){
+				$path ="./upload/interactive/$tempNameImage";
+
+				if(file_exists($path)){
+					unlink($path);
+				}
+				// else{
+				// 	$result['code'] = -1;
+				// 	$result['msg'] = "File $path Tidak Di temukan";
+				// 	//echo json_encode($result); exit;
+				// }
+
+				$result = $this->uploadFile($data);
+				echo json_encode($result); exit;
+
+
+
+			}else{
+
+				$data['interactive_image'] = $tempNameImage;
+
+				$this->load->model('m_kelasInteractive','kelasInteractive');
+
+				$result = $this->kelasInteractive->crud($data);
+				echo json_encode($result); exit;
+			}
+		}
+
+
+
+		echo json_encode($result); exit;
+	}
+
+	public function uploadFile($data){
 		try {
 			//echo ($interactive_code);
 			//print_r($data) ;
@@ -160,7 +207,7 @@ class KelasInteractive extends CI_Controller {
             $config['overwrite'] = TRUE;
             $file_id = date("YmdHis");
             //print_r ($ci->input->post('filename'));exit();
-            $config['file_name'] = $interactive_image;//'doc_'.$file_id;
+            $config['file_name'] = $data['interactive_image'];//'doc_'.$file_id;
 
             $this->load->library('upload');
             $this->upload->initialize($config);
@@ -168,38 +215,27 @@ class KelasInteractive extends CI_Controller {
             if (!$this->upload->do_upload("interactive_image")) {
 
                 $error = $this->upload->display_errors();
-                $result['success'] = false;
-                $result['message'] = $error;
+                $result['code'] = -1;
+                $result['msg'] = $error;
 
-                echo json_encode($result);
-                exit;
+                return $result;
             }else{
-
-                //chmod
-				//$data = $this->upload->data();
-				//$file_name =   $upload_data['file_name'];
-                // Do Upload
-
 
 				$this->load->model('m_kelasInteractive','kelasInteractive');
 
 				$result = $this->kelasInteractive->crud($data);
 
-
-
+				return $result;
 
             }
 
         }catch(Exception $e) {
-            $result['success'] = false;
-            $result['message'] = $e->getMessage();
-        }
+            $result['code'] = -1;
+			$result['msg'] = $e->getMessage();
+			return $result;
+		}
 
-		header('Content-type: text/plain');
-		// set json non IE
-		header('Content-type: application/json');
-
-		echo json_encode($result); exit;
+		return $result;
 	}
 
 

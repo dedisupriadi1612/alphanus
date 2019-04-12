@@ -34,11 +34,11 @@
     <script src="<?php echo base_url().'assets/';?>adm/plugins/jquery-sparkline/jquery.sparkline.js"></script>
 
     <!-- Custom Js -->
-    <script src="<?php echo base_url().'assets/';?>adm/js/admin.js"></script>
+     <script src="<?php echo base_url().'assets/';?>adm/js/admin.js"></script>
     <script src="<?php echo base_url().'assets/';?>adm/js/pages/index.js"></script>
 
     <!-- Demo Js -->
-    <script src="<?php echo base_url().'assets/';?>adm/js/demo.js"></script>
+    <script src="<?php echo base_url().'assets/';?>adm/js/demo.js"></script> -->
 
     <!-- Tree Viewer JS
 		============================================ -->
@@ -66,3 +66,16 @@
 
     <!-- Select Plugin Js -->
     <script src="<?php echo base_url().'assets/';?>adm/plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+
+    <!-- Autosize Plugin Js -->
+    <script src=".<?php echo base_url().'assets/';?>adm/plugins/autosize/autosize.js"></script>
+
+    <!-- Moment Plugin Js -->
+    <script src="<?php echo base_url().'assets/';?>adm/plugins/momentjs/moment.js"></script>
+
+    <!-- Ckeditor -->
+    <script src="<?php echo base_url().'assets/';?>adm/plugins/ckeditor2/ckeditor.js"></script>
+
+    <!-- TinyMCE -->
+    <script src="<?php echo base_url().'assets/';?>adm/plugins/tinymce/tinymce.js"></script>
