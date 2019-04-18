@@ -142,6 +142,7 @@
                     },
             //dataType: "json",
             success: function (data) {
+
                 $("#menu_id").val(data.menu_id);
                 $("#menu_parent").val(data.menu_parent);
                 $("#menu_tittle").val(data.menu_tittle);
@@ -200,6 +201,14 @@
                     },
             //dataType: "json",
             success: function (data) {
+                if(!data.surl){
+                    var url = "<?php echo base_url('auth/notFound') ?>";
+                    if(data.surl_code==-1){
+                        url = "<?php echo base_url('auth/logout') ?>";
+                    }
+                    window.location = url;
+                    return;
+                }
                 //console.log(data);
                 if(data.code == 1){
                     $("#modal_form_menu").modal("toggle");

@@ -20,18 +20,9 @@ class PrivilageType extends CI_Controller {
 	 */
 	public function index()
 	{
-		check_login();
+		security();
 
-		//$this->load->model('m_menu','menu');
-
-		//$result = $this->menu->getMenu();
-
-		//$data = array(
-			//'menus' => $result
-		//);
 		$this->load->view('admin/privilageType');
-
-		//$this->load->view('admin/menu',$data);
 	}
 
 
@@ -59,6 +50,10 @@ class PrivilageType extends CI_Controller {
 	}
 
 	public function getDetails(){
+		header('Content-type: text/plain');
+		// set json non IE
+		header('Content-type: application/json');
+
 		check_login();
 
 		$privilage_type_id=$_POST["privilage_type_id"];
@@ -69,17 +64,12 @@ class PrivilageType extends CI_Controller {
 
 
 
-		// set text compatible IE7, IE8
-		header('Content-type: text/plain');
-		// set json non IE
-		header('Content-type: application/json');
-
 
 		echo json_encode($result); exit;
 	}
 
 	public function delete(){
-		check_login();
+		security();
 
 		$action = 3; #Flag Delete
 		$privilage_type_id=$_GET["privilage_type_id"];
@@ -99,7 +89,17 @@ class PrivilageType extends CI_Controller {
 	}
 
 	public function createUpdate(){
-		check_login();
+		header('Content-type: text/plain');
+		// set json non IE
+		header('Content-type: application/json');
+
+		if (security_ajaxRequest() != 1){
+			$result = array(
+				'surl' => false,
+				'surl_code' => security_ajaxRequest()
+			);
+			echo json_encode($result); exit;
+		}
 
 		$action = $_POST["action"];
 		$privilage_type_id=$_POST["privilage_type_id"];
@@ -115,9 +115,8 @@ class PrivilageType extends CI_Controller {
 
 		$result = $this->privilageType->crud($data);
 
-		header('Content-type: text/plain');
-		// set json non IE
-		header('Content-type: application/json');
+		$result->surl = true;
+		$result->surl_code = 1;
 
 		echo json_encode($result); exit;
 	}

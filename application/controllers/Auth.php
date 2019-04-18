@@ -432,11 +432,11 @@ class Auth extends CI_Controller
 			);
 			return;
 		}
+	}
 
-
-
-
-
+	public function notFound()
+	{
+		$this->load->view('404',array('error_messages' => 'Anda Tidak Mempunyai Akses Untuk Halaman Ini'));
 	}
 
 

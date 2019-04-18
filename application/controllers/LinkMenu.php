@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Icon extends CI_Controller {
+class LinkMenu extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -21,44 +21,38 @@ class Icon extends CI_Controller {
 	public function index()
 	{
 		security();
-		$this->load->view('admin/icon');
+
+		$this->load->view('admin/linkMenu');
 	}
 
 
 
-	public function getIcon(){
+	public function getData(){
 		check_login();
 		header('Content-type: text/plain');
 		// set json non IE
 		header('Content-type: application/json');
 
-		//echo $menu_parent;exit;
+		$this->load->model('m_linkmenu','linkmenu');
 
-		$this->load->model('m_icon','icon');
-
-
-		$result = $this->icon->getIcon();
+		$result = $this->linkmenu->getData();
 
 		$data = array(
-			'data' => $result
+			'data' => $result,
+			'status' => true
 		);
 
 		echo json_encode($data); exit;
 	}
 
-	public function getIconDetails(){
+	public function getDetails(){
 		check_login();
-		header('Content-type: text/plain');
-		// set json non IE
-		header('Content-type: application/json');
 
+		$detailLinkMenu_id=$_POST["detailLinkMenu_id"];
 
+		$this->load->model('m_linkmenu','linkmenu');
 
-		$icon_id=$_POST["icon_id"];
-
-		$this->load->model('m_icon','icon');
-
-		$result = $this->icon->getIconById($icon_id);
+		$result = $this->linkmenu->getDetails($detailLinkMenu_id);
 
 
 
@@ -66,24 +60,40 @@ class Icon extends CI_Controller {
 		echo json_encode($result); exit;
 	}
 
+
 	public function delete(){
+
 		security();
 
 		$action = 3; #Flag Delete
-		$icon_id=$_GET["icon_id"];
-		$icon_name = NULL;
-		$icon_description = NULL;
+		$detailLinkMenu_id=$_GET["detailLinkMenu_id"];
+		$menu_id=NULL;
+		$menu_url = NULL;
 
 		$data=array(	"action" => $action,
-							"icon_id"=>$icon_id,
-							"icon_name"=>$icon_name,
-							"icon_description"=>$icon_description);
+							"detailLinkMenu_id"=>$detailLinkMenu_id,
+							"menu_id"=>$menu_id,
+							"link_menu"=>$menu_url);
 
-		$this->load->model('m_icon','icon');
+		$this->load->model('m_linkmenu','linkmenu');
 
-		$result = $this->icon->crudIcon($data);
+		$result = $this->linkmenu->crud($data);
 
-		redirect(base_url('icon'));
+		if($result->code <> 1)
+		{
+			$this->load->view('linkMenu',
+				"<script>
+					swal({
+									type: 'error',
+									title: 'Oops...',
+									text: $result->msg
+									})
+				</script>"
+			);
+			return;
+		}
+
+		redirect(base_url('linkMenu'));
 	}
 
 	public function createUpdate(){
@@ -100,18 +110,18 @@ class Icon extends CI_Controller {
 		}
 
 		$action = $_POST["action"];
-		$icon_id=$_POST["icon_id"];
-		$icon_name = $_POST["icon_name"];
-		$icon_description = $_POST["icon_description"];
+		$detailLinkMenu_id=$_POST["detailLinkMenu_id"];
+		$menu_id = $_POST["menu_id"];
+		$menu_url = $_POST["menu_url"];
 
 		$data=array(	"action" => $action,
-							"icon_id"=>$icon_id,
-							"icon_name"=>$icon_name,
-							"icon_description"=>$icon_description);
+							"detailLinkMenu_id"=>$detailLinkMenu_id,
+							"menu_id"=>$menu_id,
+							"link_menu"=>$menu_url);
 
-		$this->load->model('m_icon','icon');
+		$this->load->model('m_linkmenu','linkmenu');
 
-		$result = $this->icon->crudIcon($data);
+		$result = $this->linkmenu->crud($data);
 
 		$result->surl = true;
 		$result->surl_code = 1;

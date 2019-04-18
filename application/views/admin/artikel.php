@@ -3,6 +3,9 @@
 
     <section class="content">
         <div class="container-fluid">
+            <div class="block-header">
+                <h2></h2>
+            </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="card">
@@ -15,9 +18,10 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Type</th>
                                         <th>Name</th>
-                                        <th>Display</th>
-                                        <th>Description</th>
+                                        <th>Status</th>
+                                        <th>Message</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -47,28 +51,23 @@
 
                 ajax: {
                     type: "POST",
-                    url: "<?php echo base_url().'icon/getIcon'; ?>",
+                    url: "<?php echo base_url().'artikel/getData'; ?>",
                     data:{
 
                         }
                 },
                 columns: [
-                    { "data": "icon_id" },
-                    { "data": "icon_name" },
-                    { "data": "icon_name",
+                    { "data": "article_id" },
+                    { "data": "menu_tittle" },
+                    { "data": "article_tittle" },
+                    { "data": "status" },
+                    { "data": "message_admin" },
+                    { "data": "article_id",
                         "render": function(d, t, r) {
-                            var icon_name = r.icon_name;
-                            var returnString = "<i class='material-icons'>"+icon_name+"</i>";
-
-                            return returnString;
-                        }
-                    },
-                    { "data": "icon_description" },
-                    { "data": "icon_id",
-                        "render": function(d, t, r) {
-                            var icon_id = r.icon_id;
-                            var returnString = "<button type='button' class='btn btn-sm btn-warning waves-effect' onclick='modal_form_icon_show("+icon_id+")'><i class='material-icons'>mode_edit</i></button>";
-                            returnString += "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-sm btn-danger  waves-effect' onclick='deleteConfirmation("+icon_id+")'><i class='material-icons'>delete</i></button>"
+                            var id = r.article_id;
+                            var status = r.article_status;
+                            var returnString = "<button type='button' class='btn btn-sm btn-warning waves-effect' onclick='updateComfirmation("+id+","+status+")'><i class='material-icons'>mode_edit</i></button>";
+                            returnString += "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-sm btn-danger  waves-effect' onclick='deleteConfirmation("+id+")'><i class='material-icons'>delete</i></button>"
                             return returnString;
                         }
                     },
@@ -93,7 +92,30 @@
                 });
         }
 
-        function deleteConfirmation(id) {
+        function updateComfirmation(id,status) {
+            var url = "<?php echo base_url('artikel/editor?id=');?>"+id;
+
+
+            if (status == 3){
+                swal({
+                title: "Update Confirmation",
+                text: "Apakah Anda Ingin Mengubah Artikel Yang Sudah Terposting, status artikel akan berubah?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it!",
+                closeOnConfirm: false,
+                showLoaderOnConfirm: true
+                },
+                function(){
+                    window.location = url;
+                });
+            }else{
+                window.location = url;
+            }
+        }
+
+        function deleteConfirmation(id,status) {
                 var url = "<?php echo base_url('icon/delete?icon_id=');?>"+id;
                 swal({
                 title: "Delete Confirmation",

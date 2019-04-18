@@ -20,12 +20,12 @@ class Interactive extends CI_Controller {
 	 */
 	public function intr()
 	{
-		check_login();
+		security();
 		$this->load->view('admin/interactive');
     }
     public function index()
 	{
-		check_login();
+		security();
 
 		$code=$_GET["lang"];
 		switch ($code) {

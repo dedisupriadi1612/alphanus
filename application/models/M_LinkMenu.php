@@ -1,5 +1,5 @@
 <?php
-class M_Privilage extends CI_Model
+class M_LinkMenu extends CI_Model
 {
 
 	public function __construct()
@@ -10,7 +10,7 @@ class M_Privilage extends CI_Model
     public function getData()
 	{
 		#exit;
-        $query = $this->db->query("CALL getPrivilage()");
+        $query = $this->db->query("CALL getDetailLinkMenu()");
 
 		$items = $query->result();
 
@@ -21,7 +21,7 @@ class M_Privilage extends CI_Model
 
 	public function getDetails($id)
 	{
-        $query = $this->db->query("CALL getPrivilageByID($id)");
+        $query = $this->db->query("CALL getDetailLinkMenuByID($id)");
 
 		$items = $query->row();
 
@@ -30,11 +30,10 @@ class M_Privilage extends CI_Model
 
 	public function crud($data)
 	{
-		$SQL = "CALL  p_crud_Privilage(".$data['action'].",
-											".$this->db->escape($data['privilage_id']).",
-											".$this->db->escape($data['privilage_type_id']).",
+		$SQL = "CALL  p_crud_linkMenu(".$data['action'].",
+											".$this->db->escape($data['detailLinkMenu_id']).",
 											".$this->db->escape($data['menu_id']).",
-											".$this->db->escape($data['module_id']).",
+											".$this->db->escape($data['link_menu']).",
 											".$this->db->escape($this->session->userdata('user_name')).",
 											@code,
 											@msg);";
@@ -48,25 +47,7 @@ class M_Privilage extends CI_Model
         $items = $query->row();
 
         return $items;
-    }
-
-	public function fc_cekPrivilage($menu_url)
-	{
-		$user_id = $this->session->userdata('user_id');
-        $this->db->select("SUBSTRING_INDEX(output,'|',1) AS out_code");
-		$this->db->from("(SELECT fc_cekPrivilage ($user_id,'$menu_url') AS output ) z");
-		$query = $this->db->get();
-
-		//$items = $query->result();
-
-
-		$item = $query->row();
-
-		return $item;
 	}
-
-
-
 
 }
  ?>

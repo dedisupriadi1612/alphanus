@@ -93,6 +93,7 @@
                     },
             //dataType: "json",
             success: function (data) {
+
                 $("#privilage_type_id").val(data.privilage_type_id);
                 $("#privilage_type_name").val(data.privilage_type_name);
                 $("#privilage_type_description").val(data.privilage_type_description);
@@ -134,7 +135,19 @@
                     },
             //dataType: "json",
             success: function (data) {
+                if(!data.surl){
+                    var url = "<?php echo base_url('auth/notFound') ?>";
+                    if(data.surl_code==-1){
+                        url = "<?php echo base_url('auth/logout') ?>";
+                    }
+                    window.location = url;
+                    return;
+                }
+
+
                 //console.log(data);
+
+                //return;
                 if(data.code == 1){
                     $("#modal_form_privilageType").modal("toggle");
                     var url = "<?php echo base_url('privilageType');?>";

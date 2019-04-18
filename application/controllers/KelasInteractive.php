@@ -20,15 +20,7 @@ class KelasInteractive extends CI_Controller {
 	 */
 	public function index()
 	{
-		check_login();
-
-		//$this->load->model('m_menu','menu');
-
-		//$result = $this->menu->getMenu();
-
-		//$data = array(
-			//'menus' => $result
-		//);
+		security();
 		$this->load->view('admin/kelasInteractive');
 
 		//$this->load->view('admin/menu',$data);
@@ -79,7 +71,7 @@ class KelasInteractive extends CI_Controller {
 	}
 
 	public function delete(){
-		check_login();
+		security();
 
 		$action = 3; #Flag Delete
 		$interactive_id=$_GET["interactive_id"];
@@ -126,10 +118,17 @@ class KelasInteractive extends CI_Controller {
 
 	public function createUpdate(){
 
-		check_login();
 		header('Content-type: text/plain');
 		// set json non IE
 		header('Content-type: application/json');
+
+		if (security_ajaxRequest() != 1){
+			$result = array(
+				'surl' => false,
+				'surl_code' => security_ajaxRequest()
+			);
+			echo json_encode($result); exit;
+		}
 
 		//print_r($_FILES);exit;
 
@@ -161,6 +160,8 @@ class KelasInteractive extends CI_Controller {
 
 		if ($action ==="1"){
 			$result = $this->uploadFile($data);
+			$result->surl = true;
+			$result->surl_code = 1;
 			echo json_encode($result); exit;
 		}else{
 			if ($flagChangeImage ==="t"){
@@ -176,6 +177,8 @@ class KelasInteractive extends CI_Controller {
 				// }
 
 				$result = $this->uploadFile($data);
+				$result->surl = true;
+				$result->surl_code = 1;
 				echo json_encode($result); exit;
 
 
@@ -187,12 +190,15 @@ class KelasInteractive extends CI_Controller {
 				$this->load->model('m_kelasInteractive','kelasInteractive');
 
 				$result = $this->kelasInteractive->crud($data);
+				$result->surl = true;
+				$result->surl_code = 1;
 				echo json_encode($result); exit;
 			}
 		}
 
 
-
+		$result->surl = true;
+		$result->surl_code = 1;
 		echo json_encode($result); exit;
 	}
 

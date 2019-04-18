@@ -20,15 +20,8 @@ class PrivilageUser extends CI_Controller {
 	 */
 	public function index()
 	{
-		check_login();
+		security();
 
-		//$this->load->model('m_menu','menu');
-
-		//$result = $this->menu->getMenu();
-
-		//$data = array(
-			//'menus' => $result
-		//);
 		$this->load->view('admin/privilageUser');
 
 		//$this->load->view('admin/menu',$data);
@@ -79,7 +72,7 @@ class PrivilageUser extends CI_Controller {
 	}
 
 	public function delete(){
-		check_login();
+		security();
 
 		$action = 3; #Flag Delete
 		$privilage_user_id=$_GET["privilage_user_id"];
@@ -99,7 +92,17 @@ class PrivilageUser extends CI_Controller {
 	}
 
 	public function createUpdate(){
-		check_login();
+		header('Content-type: text/plain');
+		// set json non IE
+		header('Content-type: application/json');
+
+		if (security_ajaxRequest() != 1){
+			$result = array(
+				'surl' => false,
+				'surl_code' => security_ajaxRequest()
+			);
+			echo json_encode($result); exit;
+		}
 
 		$action = $_POST["action"];
 		$privilage_type_id=$_POST["privilage_type_id"];
@@ -115,9 +118,8 @@ class PrivilageUser extends CI_Controller {
 
 		$result = $this->privilageUser->crud($data);
 
-		header('Content-type: text/plain');
-		// set json non IE
-		header('Content-type: application/json');
+		$result->surl = true;
+		$result->surl_code = 1;
 
 		echo json_encode($result); exit;
 	}

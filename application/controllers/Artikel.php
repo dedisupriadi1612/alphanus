@@ -20,13 +20,13 @@ class Artikel extends CI_Controller {
 	 */
 	public function index()
 	{
-		check_login();
+        security();
 
 		$this->load->view('admin/artikel');
     }
 
     public function editor(){
-        check_login();
+        security();
 
         $id  = $this->input->get("id");
 
@@ -40,7 +40,7 @@ class Artikel extends CI_Controller {
     }
 
     public function uploads(){
-
+		security();
         $data = $_FILES['upload'];
         //print_r($data);
         $name = $data['name'];
@@ -88,6 +88,92 @@ class Artikel extends CI_Controller {
 
 			echo json_encode($result); exit;
 		}
+
+		echo json_encode($result); exit;
+    }
+
+    public function getData(){
+		check_login();
+
+		//echo $menu_parent;exit;
+
+		$this->load->model('m_artikel','artikel');
+
+
+		$result = $this->artikel->getData();
+
+		$data = array(
+			'data' => $result
+		);
+
+		header('Content-type: text/plain');
+		// set json non IE
+		header('Content-type: application/json');
+
+
+		echo json_encode($data); exit;
+	}
+
+	public function getIconDetails(){
+		check_login();
+
+		$article_id=$_POST["article_id"];
+
+		$this->load->model('m_artikel','artikel');
+
+		$result = $this->artikel->getDetails($article_id);
+
+
+
+		// set text compatible IE7, IE8
+		header('Content-type: text/plain');
+		// set json non IE
+		header('Content-type: application/json');
+
+
+		echo json_encode($result); exit;
+	}
+
+	public function delete(){
+		security();
+
+		$action = 3; #Flag Delete
+		$icon_id=$_GET["icon_id"];
+		$icon_name = NULL;
+		$icon_description = NULL;
+
+		$data=array(	"action" => $action,
+							"icon_id"=>$icon_id,
+							"icon_name"=>$icon_name,
+							"icon_description"=>$icon_description);
+
+		$this->load->model('m_icon','icon');
+
+		$result = $this->icon->crudIcon($data);
+
+		redirect(base_url('icon'));
+	}
+
+	public function createUpdate(){
+		security();
+
+		$action = $_POST["action"];
+		$icon_id=$_POST["icon_id"];
+		$icon_name = $_POST["icon_name"];
+		$icon_description = $_POST["icon_description"];
+
+		$data=array(	"action" => $action,
+							"icon_id"=>$icon_id,
+							"icon_name"=>$icon_name,
+							"icon_description"=>$icon_description);
+
+		$this->load->model('m_icon','icon');
+
+		$result = $this->icon->crudIcon($data);
+
+		header('Content-type: text/plain');
+		// set json non IE
+		header('Content-type: application/json');
 
 		echo json_encode($result); exit;
 	}

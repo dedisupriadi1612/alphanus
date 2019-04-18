@@ -1,5 +1,5 @@
 <?php
-class M_Privilage extends CI_Model
+class M_Artikel extends CI_Model
 {
 
 	public function __construct()
@@ -9,8 +9,9 @@ class M_Privilage extends CI_Model
 
     public function getData()
 	{
-		#exit;
-        $query = $this->db->query("CALL getPrivilage()");
+        #exit;
+        $user_id = $this->session->userdata('user_id');
+        $query = $this->db->query("CALL getArtikel($user_id)");
 
 		$items = $query->result();
 
@@ -21,7 +22,8 @@ class M_Privilage extends CI_Model
 
 	public function getDetails($id)
 	{
-        $query = $this->db->query("CALL getPrivilageByID($id)");
+        $user_id = $this->session->userdata('user_id');
+        $query = $this->db->query("CALL getArtikelByID($user_id,$id)");
 
 		$items = $query->row();
 
@@ -50,20 +52,6 @@ class M_Privilage extends CI_Model
         return $items;
     }
 
-	public function fc_cekPrivilage($menu_url)
-	{
-		$user_id = $this->session->userdata('user_id');
-        $this->db->select("SUBSTRING_INDEX(output,'|',1) AS out_code");
-		$this->db->from("(SELECT fc_cekPrivilage ($user_id,'$menu_url') AS output ) z");
-		$query = $this->db->get();
-
-		//$items = $query->result();
-
-
-		$item = $query->row();
-
-		return $item;
-	}
 
 
 

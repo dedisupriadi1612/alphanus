@@ -2,20 +2,32 @@
 	function checkSegmentMenu($menu,$menu_id)
 	{
         #$string = "123,456,78,000";
-        if (strpos($menu, '/') !== false) {
-            $str_arr = explode ("/", $menu);
-            $menu = $str_arr[0];
-        }
+        //if (strpos($menu, '/') !== false) {
+        //    $str_arr = explode ("/", $menu);
+        //    $menu = $str_arr[0];
+        //}
 
 
 #print_r($str_arr);
         $ci= & get_instance();
         $menu = strtolower($menu);
-        $segment = strtolower($ci->uri->segment(1));
+
+        $cekStatus = 0;
+
+        $segment1 = strtolower($ci->uri->segment(1));
+        $segment2 = strtolower($ci->uri->segment(2));
+
+        $segment = $segment1;
+		if (!empty($segment2)){
+			$segment = $segment1.'/'.$segment2;
+        }
+
+        $segment = strtolower($segment);
 
         $style = "";
         if ($menu===$segment){
             $style = "active";
+            $cekStatus = 1;
         }
 
         $ci->load->model('m_menu','menu');
@@ -26,8 +38,27 @@
 
 		if($result->out_code == 1)
 		{
-			$style = "active";
-		}
+            $style = "active";
+            $cekStatus = 1;
+        }
+
+        if ($cekStatus == 0){
+            $segment = strtolower($ci->uri->segment(1));
+
+            $style = "";
+            if ($menu===$segment){
+                $style = "active";
+            }
+
+            $ci->load->model('m_menu','menu');
+
+            $result = $ci->menu->fc_cekMenu($menu_id,$segment);
+
+            if($result->out_code == 1)
+            {
+                $style = "active";
+            }
+        }
 
 
         return $style;

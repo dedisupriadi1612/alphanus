@@ -20,12 +20,17 @@ class Menu extends CI_Controller {
 	 */
 	public function index()
 	{
-		check_login();
+		security();
 
 		$this->load->view('admin/menu');
 	}
 
 	public function getMenuByParent(){
+		// set text compatible IE7, IE8
+		header('Content-type: text/plain');
+		// set json non IE
+		header('Content-type: application/json');
+
 		check_login();
 
 		$menu_parent=$_POST["menu_parent"];
@@ -38,7 +43,23 @@ class Menu extends CI_Controller {
 			'data' => $result
 		);
 
-		// set text compatible IE7, IE8
+
+
+
+		echo json_encode($data); exit;
+	}
+
+	public function getMenuAll(){
+		check_login();
+
+		$this->load->model('m_menu','menu');
+
+		$result = $this->menu->getMenu();
+
+		$data = array(
+			'data' => $result
+		);
+
 		header('Content-type: text/plain');
 		// set json non IE
 		header('Content-type: application/json');
@@ -70,7 +91,15 @@ class Menu extends CI_Controller {
 		echo json_encode($result); exit;
 	}
 
+
+
+
+
 	public function getMenuDetails(){
+		header('Content-type: text/plain');
+		// set json non IE
+		header('Content-type: application/json');
+
 		check_login();
 
 		$menu_id=$_POST["menu_id"];
@@ -81,10 +110,6 @@ class Menu extends CI_Controller {
 
 
 
-		// set text compatible IE7, IE8
-		header('Content-type: text/plain');
-		// set json non IE
-		header('Content-type: application/json');
 
 
 		echo json_encode($result); exit;
@@ -92,7 +117,8 @@ class Menu extends CI_Controller {
 
 
 	public function delete(){
-		check_login();
+		security();
+
 
 		$action = 3; #Flag Delete
 		$menu_id=$_GET["menu_id"];
@@ -116,17 +142,21 @@ class Menu extends CI_Controller {
 
 		$result = $this->menu->crudMenu($data);
 
-		#header('Content-type: text/plain');
-		// set json non IE
-		#header('Content-type: application/json');
-
-		#echo json_encode($result); exit;
-		#$this->load->view('admin/menu',$result);
 		redirect(base_url('menu'));
 	}
 
 	public function createUpdate(){
-		check_login();
+		header('Content-type: text/plain');
+		// set json non IE
+		header('Content-type: application/json');
+
+		if (security_ajaxRequest() != 1){
+			$result = array(
+				'surl' => false,
+				'surl_code' => security_ajaxRequest()
+			);
+			echo json_encode($result); exit;
+		}
 
 		$action = $_POST["action"];
 		$menu_id=$_POST["menu_id"];
@@ -150,13 +180,8 @@ class Menu extends CI_Controller {
 
 		$result = $this->menu->crudMenu($data);
 
-		#if ($result->code == 1){
-		#	redirect(base_url('menu'));
-		#}
-
-		header('Content-type: text/plain');
-		// set json non IE
-		header('Content-type: application/json');
+		$result->surl = true;
+		$result->surl_code = 1;
 
 		echo json_encode($result); exit;
 		#$this->session->set_flashdata('error_message',$result->out_msg);

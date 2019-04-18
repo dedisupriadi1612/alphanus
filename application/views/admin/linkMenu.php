@@ -4,10 +4,14 @@
     <section class="content">
         <div class="container-fluid">
 
+            <div class="block-header">
+                <h2></h2>
+            </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="card">
                     <div class="header">
-                        <h2>Privilage</h2>
+                        <h2>Link Menu</h2>
                     </div>
                     <div class="body">
                         <div class="table-responsive">
@@ -15,9 +19,8 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Type Name</th>
                                         <th>Menu Name</th>
-                                        <th>Module Name</th>
+                                        <th>URL</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -32,7 +35,7 @@
         </div>
     </section>
 
-    <?php $this->load->view('admin/lov/form_privilage'); ?>
+    <?php $this->load->view('admin/lov/form_linkMenu'); ?>
 
     <script>
 
@@ -41,29 +44,24 @@
         });
 
 
-
-
-
         function loadTable(){
 
             $('#tablePrivilage').DataTable({
 
                 ajax: {
                     type: "POST",
-                    url: "<?php echo base_url().'privilage/getData'; ?>",
+                    url: "<?php echo base_url().'linkMenu/getData'; ?>",
                     data:{
-
                         }
                 },
                 columns: [
-                    { "data": "privilage_id" },
-                    { "data": "privilage_type_name" },
+                    { "data": "detailLinkMenu_id" },
                     { "data": "menu_tittle" },
-                    { "data": "module_name" },
-                    { "data": "privilage_id",
+                    { "data": "link_menu" },
+                    { "data": "detailLinkMenu_id",
                         "render": function(d, t, r) {
-                            var id = r.privilage_id;
-                            var returnString = "<button type='button' class='btn btn-sm btn-warning waves-effect' onclick='modal_form_privilage_show("+id+")'><i class='material-icons'>mode_edit</i></button>";
+                            var id = r.detailLinkMenu_id;
+                            var returnString = "<button type='button' class='btn btn-sm btn-warning waves-effect' onclick='modal_form_linkMenu_show("+id+")'><i class='material-icons'>mode_edit</i></button>";
                             returnString += "&nbsp;&nbsp;&nbsp;<button type='button' class='btn btn-sm btn-danger  waves-effect' onclick='deleteConfirmation("+id+")'><i class='material-icons'>delete</i></button>"
                             return returnString;
                         }
@@ -74,10 +72,10 @@
                 select:true,
                 buttons: [
                     {
-                        text: 'Tambah Privilage',
+                        text: 'Tambah Link Menu',
                         action: function ( e, dt, node, config ) {
                             //alert( 'Button activated' );
-                            modal_form_privilage_show(0);
+                            modal_form_linkMenu_show(0);
                         }
                     }
                 ],
@@ -89,7 +87,7 @@
         }
 
         function deleteConfirmation(id) {
-                var url = "<?php echo base_url('Privilage/delete?Privilage_type_id=');?>"+id;
+                var url = "<?php echo base_url('linkMenu/delete?detailLinkMenu_id=');?>"+id;
                 swal({
                 title: "Delete Confirmation",
                 text: "Are You sure to delete selected record?",

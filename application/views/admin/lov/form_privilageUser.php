@@ -158,6 +158,14 @@
                     },
             //dataType: "json",
             success: function (data) {
+                if(!data.surl){
+                    var url = "<?php echo base_url('auth/notFound') ?>";
+                    if(data.surl_code==-1){
+                        url = "<?php echo base_url('auth/logout') ?>";
+                    }
+                    window.location = url;
+                    return;
+                }
                 //console.log(data);
                 if(data.code == 1){
                     $("#modal_form_privilageUser").modal("toggle");
