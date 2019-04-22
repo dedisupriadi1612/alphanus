@@ -114,7 +114,7 @@ class Artikel extends CI_Controller {
 		echo json_encode($data); exit;
 	}
 
-	public function getIconDetails(){
+	public function getDetails(){
 		check_login();
 
 		$article_id=$_POST["article_id"];
@@ -138,42 +138,66 @@ class Artikel extends CI_Controller {
 		security();
 
 		$action = 3; #Flag Delete
-		$icon_id=$_GET["icon_id"];
-		$icon_name = NULL;
-		$icon_description = NULL;
+		$article_id=$_GET["article_id"];
+		$blog_type = NULL;
+		$article_tittle = NULL;
+		$article_text = NULL;
+		$article_status = NULL;
+		$message_admin = NULL;
 
 		$data=array(	"action" => $action,
-							"icon_id"=>$icon_id,
-							"icon_name"=>$icon_name,
-							"icon_description"=>$icon_description);
+							"article_id"=>$article_id,
+							"blog_type"=>$blog_type,
+							"user_id"=>$user_id,
+							"article_tittle"=>$article_tittle,
+							"article_text"=>$article_text,
+							"article_status"=>$article_status,
+							"message_admin"=>$message_admin,
+						);
 
-		$this->load->model('m_icon','icon');
+		$this->load->model('m_artikel','artikel');
 
-		$result = $this->icon->crudIcon($data);
+		$result = $this->artikel->crud($data);
 
-		redirect(base_url('icon'));
+		redirect(base_url('artikel'));
 	}
 
 	public function createUpdate(){
-		security();
-
-		$action = $_POST["action"];
-		$icon_id=$_POST["icon_id"];
-		$icon_name = $_POST["icon_name"];
-		$icon_description = $_POST["icon_description"];
-
-		$data=array(	"action" => $action,
-							"icon_id"=>$icon_id,
-							"icon_name"=>$icon_name,
-							"icon_description"=>$icon_description);
-
-		$this->load->model('m_icon','icon');
-
-		$result = $this->icon->crudIcon($data);
-
 		header('Content-type: text/plain');
 		// set json non IE
 		header('Content-type: application/json');
+
+		if (security_ajaxRequest() != 1){
+			$result = array(
+				'surl' => false,
+				'surl_code' => security_ajaxRequest()
+			);
+			echo json_encode($result); exit;
+		}
+
+		$action = $_POST["action"];
+		$article_id=$_POST["article_id"];
+		$blog_type = $_POST["blog_type"];
+		$article_tittle = $_POST["article_tittle"];
+		$article_text = $_POST["article_text"];
+		$article_status = $_POST["article_status"];
+		$message_admin = $_POST["message_admin"];
+
+		$data=array(	"action" => $action,
+							"article_id"=>$article_id,
+							"blog_type"=>$blog_type,
+							"article_tittle"=>$article_tittle,
+							"article_text"=>$article_text,
+							"article_status"=>$article_status,
+							"message_admin"=>$message_admin,
+						);
+
+		$this->load->model('m_artikel','artikel');
+
+		$result = $this->artikel->crud($data);
+
+		$result->surl = true;
+		$result->surl_code = 1;
 
 		echo json_encode($result); exit;
 	}

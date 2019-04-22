@@ -68,6 +68,25 @@ class Menu extends CI_Controller {
 		echo json_encode($data); exit;
 	}
 
+	public function getMenuBlog(){
+		check_login();
+
+		$this->load->model('m_menu','menu');
+
+		$result = $this->menu->getMenuBlog();
+
+		$data = array(
+			'data' => $result
+		);
+
+		header('Content-type: text/plain');
+		// set json non IE
+		header('Content-type: application/json');
+
+
+		echo json_encode($data); exit;
+	}
+
 	public function getMenu(){
 		check_login();
 

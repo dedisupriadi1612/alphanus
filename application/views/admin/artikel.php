@@ -116,7 +116,7 @@
         }
 
         function deleteConfirmation(id,status) {
-                var url = "<?php echo base_url('icon/delete?icon_id=');?>"+id;
+                var url = "<?php echo base_url('artikel/delete?article_id=');?>"+id;
                 swal({
                 title: "Delete Confirmation",
                 text: "Are You sure to delete selected record?",

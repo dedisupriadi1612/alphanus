@@ -32,11 +32,14 @@ class M_Artikel extends CI_Model
 
 	public function crud($data)
 	{
-		$SQL = "CALL  p_crud_Privilage(".$data['action'].",
-											".$this->db->escape($data['privilage_id']).",
-											".$this->db->escape($data['privilage_type_id']).",
-											".$this->db->escape($data['menu_id']).",
-											".$this->db->escape($data['module_id']).",
+		$SQL = "CALL  p_crud_article(".$data['action'].",
+											".$this->db->escape($data['article_id']).",
+											".$this->db->escape($data['blog_type']).",
+											".$this->db->escape($this->session->userdata('user_id')).",
+											".$this->db->escape($data['article_tittle']).",
+											".$this->db->escape($data['article_text']).",
+											".$this->db->escape($data['article_status']).",
+											".$this->db->escape($data['message_admin']).",
 											".$this->db->escape($this->session->userdata('user_name')).",
 											@code,
 											@msg);";

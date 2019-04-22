@@ -439,6 +439,13 @@ class Auth extends CI_Controller
 		$this->load->view('404',array('error_messages' => 'Anda Tidak Mempunyai Akses Untuk Halaman Ini'));
 	}
 
+	public function notFound404()
+	{
+
+
+		$this->load->view('404',array('error_messages' => 'Halaman Tidak Ada'));
+	}
+
 
 
 }

@@ -122,6 +122,15 @@ class M_menu extends CI_Model
 		return $items;
 	}
 
+	public function getMenuBlog()
+	{
+        $query = $this->db->query("CALL getMenuBlog()");
+
+		$items = $query->result();
+
+		return $items;
+	}
+
 
 
 
